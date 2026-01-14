@@ -198,18 +198,25 @@ const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const target = entry.target;
+
+            // Skip elements with data-no-animate attribute
+            if (target.hasAttribute('data-no-animate')) {
+                statObserver.unobserve(target);
+                return;
+            }
+
             const text = target.textContent;
-            
+
             // Extract numbers from text (e.g., "5개소" -> 5, "20,000건" -> 20000)
             const numbers = text.match(/\d+/g);
             if (numbers) {
                 const value = parseInt(numbers.join(''));
                 const suffix = text.replace(/[\d,]/g, '');
-                
+
                 let current = 0;
                 const duration = 2000;
                 const increment = value / (duration / 16);
-                
+
                 const timer = setInterval(() => {
                     current += increment;
                     if (current >= value) {
@@ -220,7 +227,7 @@ const statObserver = new IntersectionObserver((entries) => {
                     }
                 }, 16);
             }
-            
+
             statObserver.unobserve(target);
         }
     });
