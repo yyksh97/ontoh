@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONTOH Health - 작업자 보건관리 시스템 | 건강검진 자동화 & 고위험군 관리</title>
+  <meta name="description" content="ONTOH Health는 간편인증 한 번으로 10년치 건강검진 결과를 자동 수집하고, AI로 고위험군을 즉시 식별하는 작업자 보건관리 시스템입니다. 건설현장 건강관리 자동화 솔루션.">
+  <meta name="keywords" content="작업자 보건관리 시스템, 건강검진 자동화, 고위험군 관리, 건설현장 건강관리, 산업안전보건법, 중대재해처벌법, ONTOH Health">
+  <link rel="canonical" href="https://ontoh.co.kr/health.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="product">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="ONTOH Health - 작업자 보건관리 시스템">
+  <meta property="og:description" content="간편인증 한 번으로 10년치 검진 결과를 자동 수집하고, AI로 고위험군을 즉시 식별합니다.">
+  <meta property="og:url" content="https://ontoh.co.kr/health.html">
+  <meta property="og:site_name" content="ONTOH">
+  <meta property="og:image" content="https://ontoh.co.kr/assets/logo/ontoh/파랑.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ONTOH Health - 작업자 보건관리 시스템">
+  <meta name="twitter:description" content="간편인증 한 번으로 10년치 검진 결과를 자동 수집하고, AI로 고위험군을 즉시 식별합니다.">
+  <meta name="twitter:image" content="https://ontoh.co.kr/assets/logo/ontoh/파랑.svg">
+  <!-- JSON-LD 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "ONTOH Health",
+    "description": "건설현장 작업자 건강검진 자동 수집, AI 기반 고위험군 식별, 맞춤형 보건 리포트 생성 솔루션.",
+    "brand": {
+      "@type": "Brand",
+      "name": "ONTOH"
+    },
+    "category": "작업자 보건관리 솔루션",
+    "url": "https://ontoh.co.kr/health.html"
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              DEFAULT: '#1b2e6a',
+              50: '#f0f3fa',
+              100: '#dde3f3',
+              200: '#bcc8e7',
+              300: '#8fa3d6',
+              400: '#6079c0',
+              500: '#3d57a8',
+              600: '#1b2e6a',
+              700: '#162556',
+              800: '#111d42',
+              900: '#0c142e',
+              950: '#080e1f',
+            },
+            accent: {
+              DEFAULT: '#0169a9',
+              50: '#eef8ff',
+              100: '#d9eeff',
+              200: '#bce2ff',
+              300: '#8ed0ff',
+              400: '#59b4ff',
+              500: '#3393ff',
+              600: '#0169a9',
+              700: '#015a91',
+              800: '#064c77',
+              900: '#0b4063',
+            },
+            danger: '#ef4444',
+            warning: '#d97706',
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* Health-specific accent dot (blue) */
+    .accent-dot { color: #0169a9; }
+
+    /* Health-specific keyframes */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1.5deg); }
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.4; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    /* Process connector line */
+    .process-line {
+      position: absolute;
+      top: 2.5rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, #e2e8f0, #0169a9, #1b2e6a, #0169a9, #e2e8f0);
+      z-index: 0;
+    }
+
+    /* Step number circle */
+    .step-circle {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Phone mockup */
+    .phone-mockup {
+      width: 260px;
+      height: 520px;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      border: 4px solid #e2e8f0;
+      box-shadow: 0 25px 50px rgba(27,46,106,0.08), inset 0 0 0 2px #f1f5f9;
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 28px;
+      background: #e2e8f0;
+      border-radius: 0 0 1.2rem 1.2rem;
+      z-index: 10;
+    }
+
+    /* Dashboard card */
+    .dash-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    /* Arrow flow */
+    .flow-arrow::after {
+      content: '';
+      position: absolute;
+      right: -1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 10px solid #cbd5e1;
+    }
+    .flow-arrow:last-child::after {
+      display: none;
+    }
+
+    /* Mapping flow connector */
+    .mapping-arrow {
+      position: relative;
+    }
+    .mapping-arrow::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 8px solid #0169a9;
+    }
+  </style>
+</head>
+<body class="bg-white text-[#0f172a] font-sans antialiased min-h-[100dvh]">
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav id="mainNav" class="fixed top-0 left-0 right-0 z-40 nav-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/logo/ontoh/파랑.svg" alt="ONTOH" class="h-10">
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html#why" class="text-[13px] font-medium text-[#334155] hover:text-navy spring relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-navy after:rounded-full hover:after:w-full after:spring uppercase tracking-wider">About</a>
+          <!-- Solutions Dropdown -->
+          <div class="relative group/sol">
+            <button class="text-[13px] font-medium text-navy spring relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-navy after:rounded-full flex items-center gap-1 uppercase tracking-wider">
+              Solutions
+              <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[10px] spring group-hover/sol:rotate-180"></iconify-icon>
+            </button>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover/sol:opacity-100 group-hover/sol:visible spring">
+              <div class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(27,46,106,0.12)] border border-navy/5 py-3 px-1 min-w-[240px]">
+                <a href="vision.html" class="block px-5 py-3 rounded-xl hover:bg-navy/[0.03] spring group/item">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[13px] font-bold text-navy">ONTOH Vision</span>
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-[11px] text-navy/30 group-hover/item:text-navy group-hover/item:translate-x-0.5 spring"></iconify-icon>
+                  </div>
+                  <p class="text-[11px] text-[#64748b] mt-0.5">AI 기반 CCTV 자율 관제 솔루션</p>
+                </a>
+                <div class="mx-4 my-1 h-px bg-navy/5"></div>
+                <a href="health.html" class="block px-5 py-3 rounded-xl bg-navy/[0.03]">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[13px] font-bold text-navy">ONTOH Health</span>
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-[11px] text-navy/30"></iconify-icon>
+                  </div>
+                  <p class="text-[11px] text-[#64748b] mt-0.5">작업자 보건관리 솔루션</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center">
+          <a href="index.html#contact" class="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-5 py-2.5 text-[13px] font-medium hover:scale-[1.02] active:scale-[0.98] spring uppercase tracking-wider">
+            Contact
+            <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
+              <iconify-icon icon="solar:arrow-right-linear" class="cta-arrow text-[10px]"></iconify-icon>
+            </span>
+          </a>
+        </div>
+        <button id="menuToggle" class="md:hidden w-9 h-9 rounded-full bg-navy/5 flex items-center justify-center spring hover:bg-navy/10" aria-label="메뉴 열기" onclick="toggleMobileMenu()">
+          <iconify-icon icon="solar:hamburger-menu-linear" class="text-navy text-lg"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-50 bg-white/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 md:hidden">
+    <button class="absolute top-6 right-6 w-10 h-10 rounded-full bg-navy/5 flex items-center justify-center" aria-label="메뉴 닫기" onclick="closeMobileMenu()">
+      <iconify-icon icon="solar:close-circle-linear" class="text-navy text-2xl"></iconify-icon>
+    </button>
+    <a href="index.html#why" class="menu-link text-2xl font-bold text-navy stagger-1 uppercase tracking-wider" onclick="closeMobileMenu()">About</a>
+    <div class="menu-link stagger-2 text-center">
+      <p class="text-sm text-[#94a3b8] font-medium tracking-wider uppercase mb-3">Solutions</p>
+      <a href="vision.html" class="block text-xl font-bold text-navy mb-2" onclick="closeMobileMenu()">ONTOH Vision</a>
+      <a href="health.html" class="block text-xl font-bold text-navy" onclick="closeMobileMenu()">ONTOH Health</a>
+    </div>
+    <a href="index.html#contact" class="menu-link group inline-flex items-center gap-3 bg-navy text-white rounded-full px-8 py-4 text-lg font-medium stagger-3 hover:scale-[1.02] active:scale-[0.98] spring uppercase tracking-wider" onclick="closeMobileMenu()">
+      Contact
+      <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
+        <iconify-icon icon="solar:arrow-right-linear" class="cta-arrow"></iconify-icon>
+      </span>
+    </a>
+  </div>
+
+  <!-- ==================== SECTION 1: HERO ==================== -->
+  <section class="relative min-h-[100dvh] flex items-center overflow-hidden bg-gradient-to-br from-[#f0f3fa] via-white to-[#eef8ff]">
+    <!-- Background decorative elements -->
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text content -->
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 bg-accent/5 border border-accent/15 rounded-full px-4 py-1.5 mb-6">
+            <iconify-icon icon="solar:health-bold" class="text-accent" width="16"></iconify-icon>
+            <span class="text-accent text-sm font-semibold tracking-wide">ONTOH Health</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-navy leading-[1.2] mb-6">
+            <span class="text-navy">검진 결과 수집부터 배치 관리까지,</span><br class="hidden sm:block"><span class="text-accent">수기 업무를 자동화</span>합니다
+          </h1>
+          <p class="text-lg text-[#334155] leading-relaxed mb-10 max-w-xl">
+            검진 결과 수령, 엑셀 입력, 고위험군 분류까지 — 반복되던 수기 업무를 하나의 플랫폼에서 자동으로 처리합니다.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html#contact" class="bg-accent text-white font-semibold rounded-full px-8 py-4 flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] spring shadow-lg shadow-accent/20">
+              도입 상담 받기
+              <span class="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
+                <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+              </span>
+            </a>
+            <a href="index.html" class="bg-white text-navy font-semibold rounded-full px-8 py-4 flex items-center gap-3 border border-slate-200 hover:border-navy/20 hover:scale-[1.02] active:scale-[0.98] spring">
+              <iconify-icon icon="solar:arrow-left-linear" width="16"></iconify-icon>
+              메인으로 돌아가기
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Phone Mockup -->
+        <div class="reveal flex justify-center lg:justify-end" style="--index:1">
+          <div class="relative" style="animation: floatSlow 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <!-- Phone screen content -->
+              <div class="w-full h-full bg-gradient-to-b from-[#f8fafc] to-white p-6 pt-12 flex flex-col">
+                <!-- Status bar -->
+                <div class="flex justify-between items-center mb-6 text-[#94a3b8] text-[10px]">
+                  <span>9:41</span>
+                  <div class="flex items-center gap-1">
+                    <iconify-icon icon="solar:wifi-minimalistic-bold" width="12"></iconify-icon>
+                    <iconify-icon icon="solar:battery-full-minimalistic-bold" width="14"></iconify-icon>
+                  </div>
+                </div>
+                <!-- App header -->
+                <div class="text-center mb-6">
+                  <p class="text-accent text-[11px] font-semibold tracking-wider mb-1">ONTOH Health</p>
+                  <p class="text-navy text-base font-bold">나의 건강 리포트</p>
+                </div>
+                <!-- Health Age Card -->
+                <div class="bg-navy/5 rounded-2xl p-4 mb-4 border border-navy/10">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-[#64748b] text-xs">건강나이</span>
+                    <span class="bg-warning/20 text-warning text-[10px] px-2 py-0.5 rounded-full font-semibold">주의</span>
+                  </div>
+                  <div class="flex items-end gap-1 mb-3">
+                    <span class="text-4xl font-extrabold text-navy">58</span>
+                    <span class="text-[#94a3b8] text-sm mb-1">세</span>
+                  </div>
+                  <div class="w-full bg-navy/10 rounded-full h-2 mb-1">
+                    <div class="bg-gradient-to-r from-accent to-danger h-2 rounded-full" style="width: 78%"></div>
+                  </div>
+                  <p class="text-[#94a3b8] text-[10px]">실제 나이 52세 대비 +6세</p>
+                </div>
+                <!-- Warning items -->
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-3 bg-danger/5 rounded-xl px-3 py-2.5 border border-danger/15">
+                    <iconify-icon icon="solar:danger-triangle-bold" class="text-danger" width="16"></iconify-icon>
+                    <div>
+                      <p class="text-[#0f172a] text-xs font-semibold">고혈압 D2</p>
+                      <p class="text-[#94a3b8] text-[10px]">수축기 155mmHg</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 bg-warning/5 rounded-xl px-3 py-2.5 border border-warning/15">
+                    <iconify-icon icon="solar:shield-warning-bold" class="text-warning" width="16"></iconify-icon>
+                    <div>
+                      <p class="text-[#0f172a] text-xs font-semibold">공복혈당 주의</p>
+                      <p class="text-[#94a3b8] text-[10px]">118 mg/dL</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- QR Check-in -->
+                <div class="bg-accent/5 rounded-2xl p-4 border border-accent/15 text-center mt-auto">
+                  <iconify-icon icon="solar:qr-code-bold" class="text-accent mb-1" width="32"></iconify-icon>
+                  <p class="text-[#0f172a] text-xs font-semibold">QR 체크인</p>
+                  <p class="text-[#94a3b8] text-[10px]">현장 배치 확인</p>
+                </div>
+              </div>
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -left-12 top-24 bg-white shadow-xl rounded-2xl p-3 border border-slate-100" style="animation: float 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                  <iconify-icon icon="solar:shield-check-bold" class="text-accent" width="18"></iconify-icon>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">고위험군 식별</p>
+                  <p class="text-sm font-bold text-navy">자동 완료</p>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -right-8 bottom-32 bg-white shadow-xl rounded-2xl p-3 border border-slate-100" style="animation: float 4s cubic-bezier(0.16, 1, 0.3, 1) infinite 1s;">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-accent-blue/10 flex items-center justify-center">
+                  <iconify-icon icon="solar:document-add-bold" class="text-accent" width="18"></iconify-icon>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">검진 수집</p>
+                  <p class="text-sm font-bold text-navy">10년치</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 2: AS-IS PROBLEM ==================== -->
+  <section class="section-spacious bg-[#f8fafc] relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section heading -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 bg-danger/5 border border-danger/10 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="solar:danger-triangle-bold" class="text-danger" width="14"></iconify-icon>
+          <span class="text-danger text-sm font-semibold">AS-IS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy leading-tight max-w-3xl mx-auto">
+          검진 결과 &rarr; 현장 배치 &rarr; 작업 관리, <br class="hidden sm:block">전 과정이 수기 &middot; 분절 &middot; 사후 대응<span class="accent-dot">.</span>
+        </h2>
+      </div>
+
+      <!-- Broken Flow Diagram -->
+      <div class="reveal mb-16" style="--index:1">
+        <div class="double-bezel">
+          <div class="double-bezel-inner !p-6 sm:!p-8">
+            <p class="text-sm font-semibold text-slate-400 mb-6 tracking-wide">현재 업무 흐름</p>
+            <div class="flex flex-wrap justify-center gap-4 lg:gap-0">
+              <!-- Step 1 -->
+              <div class="relative flex flex-col items-center text-center w-40 flow-arrow">
+                <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-3">
+                  <iconify-icon icon="solar:hospital-bold" class="text-slate-400" width="24"></iconify-icon>
+                </div>
+                <p class="text-sm font-bold text-[#0f172a] mb-1">건강검진</p>
+                <p class="text-xs text-slate-400">병원 개별 실시</p>
+              </div>
+              <!-- Step 2 -->
+              <div class="relative flex flex-col items-center text-center w-40 flow-arrow">
+                <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-3">
+                  <iconify-icon icon="solar:inbox-in-bold" class="text-slate-400" width="24"></iconify-icon>
+                </div>
+                <p class="text-sm font-bold text-[#0f172a] mb-1">결과 수령</p>
+                <p class="text-xs text-slate-400">우편/PDF<br>개별 수령</p>
+              </div>
+              <!-- Step 3 -->
+              <div class="relative flex flex-col items-center text-center w-40 flow-arrow">
+                <div class="w-12 h-12 rounded-2xl bg-warning/10 flex items-center justify-center mb-3">
+                  <iconify-icon icon="solar:document-text-bold" class="text-warning" width="24"></iconify-icon>
+                </div>
+                <p class="text-sm font-bold text-[#0f172a] mb-1">엑셀 입력</p>
+                <p class="text-xs text-danger font-medium">수기 입력<br>오타/누락 빈번</p>
+              </div>
+              <!-- Step 4 -->
+              <div class="relative flex flex-col items-center text-center w-40 flow-arrow">
+                <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-3">
+                  <iconify-icon icon="solar:user-id-bold" class="text-slate-400" width="24"></iconify-icon>
+                </div>
+                <p class="text-sm font-bold text-[#0f172a] mb-1">개별 관리</p>
+                <p class="text-xs text-slate-400">통합 조회 불가<br>파편화</p>
+              </div>
+              <!-- Step 5 -->
+              <div class="relative flex flex-col items-center text-center w-40">
+                <div class="w-12 h-12 rounded-2xl bg-danger/10 flex items-center justify-center mb-3">
+                  <iconify-icon icon="solar:shield-warning-bold" class="text-danger" width="24"></iconify-icon>
+                </div>
+                <p class="text-sm font-bold text-[#0f172a] mb-1">고위험군 식별 불가</p>
+                <p class="text-xs text-danger font-medium">사후 대응<br>사각지대 발생</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pain Cards -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Pain 1 -->
+        <div class="reveal" style="--index:2">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="w-12 h-12 rounded-2xl bg-danger/8 flex items-center justify-center mb-5">
+                <iconify-icon icon="solar:documents-bold" class="text-danger" width="24"></iconify-icon>
+              </div>
+              <h3 class="text-lg font-bold text-navy mb-3">건강검진 결과</h3>
+              <p class="text-[#334155] text-sm leading-relaxed">PDF/엑셀 개별 관리. 현장마다 양식이 달라 통합 조회 불가.<br>작업자 수 증가 시 관리 난이도 기하급수적 증가.</p>
+              <div class="mt-5 pt-4 border-t border-slate-100">
+                <div class="flex items-center gap-2 text-xs text-danger font-medium">
+                  <iconify-icon icon="solar:close-circle-bold" class="text-danger" width="14"></iconify-icon>
+                  통합 조회 불가
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pain 2 -->
+        <div class="reveal" style="--index:3">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="w-12 h-12 rounded-2xl bg-warning/8 flex items-center justify-center mb-5">
+                <iconify-icon icon="solar:clipboard-check-bold" class="text-warning" width="24"></iconify-icon>
+              </div>
+              <h3 class="text-lg font-bold text-navy mb-3">현장 배치 시 건강상태 확인</h3>
+              <p class="text-[#334155] text-sm leading-relaxed">검진 결과와 배치 정보를 수기 대조. 확인 누락 빈번.<br>건강 이상 작업자가 고위험 작업에 배치되는 사각지대 발생.</p>
+              <div class="mt-5 pt-4 border-t border-slate-100">
+                <div class="flex items-center gap-2 text-xs text-warning font-medium">
+                  <iconify-icon icon="solar:danger-triangle-bold" class="text-warning" width="14"></iconify-icon>
+                  수기 대조, 누락 빈번
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pain 3 -->
+        <div class="reveal" style="--index:4">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="w-12 h-12 rounded-2xl bg-danger/8 flex items-center justify-center mb-5">
+                <iconify-icon icon="solar:user-cross-bold" class="text-danger" width="24"></iconify-icon>
+              </div>
+              <h3 class="text-lg font-bold text-navy mb-3">고위험군 식별</h3>
+              <p class="text-[#334155] text-sm leading-relaxed">관리자 개인의 경험·역량에 의존.<br>체계적 기준 없이 판단, 고위험 작업자 사전 식별 실패 반복.</p>
+              <div class="mt-5 pt-4 border-t border-slate-100">
+                <div class="flex items-center gap-2 text-xs text-danger font-medium">
+                  <iconify-icon icon="solar:close-circle-bold" class="text-danger" width="14"></iconify-icon>
+                  관리자 개인 역량 의존
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 3: PROCESS FLOW ==================== -->
+  <section class="section-spacious bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section heading -->
+      <div class="text-center mb-20 reveal">
+        <div class="inline-flex items-center gap-2 bg-accent/5 border border-accent/15 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="solar:routing-bold" class="text-accent" width="14"></iconify-icon>
+          <span class="text-accent text-sm font-semibold">TO-BE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
+          반복 업무는 AI에게,<br>안전관리자는 <span class="text-accent">핵심 업무에 집중</span><span class="accent-dot">.</span>
+        </h2>
+        <p class="text-[#64748b] mt-4 text-lg max-w-2xl mx-auto">인증부터 사후관리까지,<br>전 과정을 하나의 플랫폼에서 자동으로 처리합니다.</p>
+      </div>
+
+      <!-- 5 Steps -->
+      <div class="relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden lg:block process-line" style="top: 3.5rem; left: 5%; right: 5%;"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
+          <!-- Step 01 -->
+          <div class="reveal text-center relative" style="--index:0">
+            <div class="step-circle bg-accent-blue/10 text-accent mx-auto mb-4 border-4 border-white shadow-md">01</div>
+            <div class="double-bezel">
+              <div class="double-bezel-inner !p-5">
+                <div class="w-10 h-10 rounded-xl bg-accent-blue/8 flex items-center justify-center mx-auto mb-3">
+                  <iconify-icon icon="solar:lock-keyhole-minimalistic-unlocked-bold" class="text-accent" width="22"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-navy text-base mb-2">간편 인증</h3>
+                <p class="text-xs text-[#64748b] leading-relaxed">본인 확인 한 번으로 시작.<br>카카오/네이버/PASS 인증 지원.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="reveal text-center relative" style="--index:1">
+            <div class="step-circle bg-accent-blue/10 text-accent mx-auto mb-4 border-4 border-white shadow-md">02</div>
+            <div class="double-bezel">
+              <div class="double-bezel-inner !p-5">
+                <div class="w-10 h-10 rounded-xl bg-accent-blue/8 flex items-center justify-center mx-auto mb-3">
+                  <iconify-icon icon="solar:cloud-download-bold" class="text-accent" width="22"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-navy text-base mb-2">데이터 수집</h3>
+                <p class="text-xs text-[#64748b] leading-relaxed">검진 기관 연동.<br>10년치 국가검진 결과 자동 수집.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03 -- Highlighted -->
+          <div class="reveal text-center relative" style="--index:2">
+            <div class="step-circle bg-accent text-white mx-auto mb-4 border-4 border-white shadow-lg shadow-accent/20">03</div>
+            <div class="double-bezel !bg-accent/5 !shadow-[0_0_0_2px_rgba(1,105,169,0.2)]">
+              <div class="double-bezel-inner !p-5">
+                <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-3">
+                  <iconify-icon icon="solar:shield-check-bold" class="text-accent" width="22"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-accent text-base mb-2">위험 분류</h3>
+                <p class="text-xs text-[#334155] leading-relaxed font-medium">AI 기반 고위험군 판별.<br>고혈압, 당뇨, 심뇌혈관 자동 분류.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="reveal text-center relative" style="--index:3">
+            <div class="step-circle bg-accent-blue/10 text-accent mx-auto mb-4 border-4 border-white shadow-md">04</div>
+            <div class="double-bezel">
+              <div class="double-bezel-inner !p-5">
+                <div class="w-10 h-10 rounded-xl bg-accent-blue/8 flex items-center justify-center mx-auto mb-3">
+                  <iconify-icon icon="solar:chart-2-bold" class="text-accent" width="22"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-navy text-base mb-2">리포트</h3>
+                <p class="text-xs text-[#64748b] leading-relaxed">현장별·개인별 리포트 자동 생성.<br>엑셀 출력 지원.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 05 -->
+          <div class="reveal text-center relative" style="--index:4">
+            <div class="step-circle bg-accent-blue/10 text-accent mx-auto mb-4 border-4 border-white shadow-md">05</div>
+            <div class="double-bezel">
+              <div class="double-bezel-inner !p-5">
+                <div class="w-10 h-10 rounded-xl bg-accent-blue/8 flex items-center justify-center mx-auto mb-3">
+                  <iconify-icon icon="solar:bell-bing-bold" class="text-accent" width="22"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-navy text-base mb-2">사후 관리 추적</h3>
+                <p class="text-xs text-[#64748b] leading-relaxed">건강 이력 모니터링.<br>재검사·작업전환 리마인드 자동 발송.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 4: FEATURES DETAIL (Zig-Zag) ==================== -->
+  <section class="section-spacious bg-[#f8fafc] relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section heading -->
+      <div class="text-center mb-20 reveal">
+        <div class="inline-flex items-center gap-2 bg-navy/5 border border-navy/10 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="solar:widget-5-bold" class="text-navy" width="14"></iconify-icon>
+          <span class="text-navy text-sm font-semibold">주요 기능</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
+          <span class="text-accent">등록</span>부터 <span class="text-accent">관리</span>까지, 모든 기능을 하나로<span class="accent-dot">.</span>
+        </h2>
+      </div>
+
+      <!-- Row 1: Text Left, Visual Right -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 bg-accent/5 rounded-full px-3 py-1 mb-4">
+            <span class="text-accent text-xs font-semibold">작업자 등록</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-navy mb-5 leading-tight">
+            작업자 등록 &amp; 검진 자동 수집
+          </h3>
+          <p class="text-[#334155] leading-relaxed mb-6">
+            작업자가 간편인증을 완료하면, 국가건강검진 결과가 자동으로 수집됩니다.<br>관리자는 별도 입력 없이 대시보드에서 전체 현황을 확인할 수 있습니다.<br>10년치 이력까지 한 번에 불러오므로 과거 추이 분석도 가능합니다.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 shrink-0">
+                <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+              </div>
+              <span class="text-sm text-[#334155]">카카오/네이버/PASS 간편인증 지원</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 shrink-0">
+                <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+              </div>
+              <span class="text-sm text-[#334155]">10년치 국가건강검진 결과 자동 연동</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 shrink-0">
+                <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+              </div>
+              <span class="text-sm text-[#334155]">수기 입력 완전 제거, 오류율 0%</span>
+            </li>
+          </ul>
+        </div>
+        <!-- CSS Mockup: Registration Flow -->
+        <div class="reveal" style="--index:1">
+          <div class="double-bezel">
+            <div class="double-bezel-inner !p-6">
+              <!-- App Screen Mockup: Registration Flow -->
+              <div class="bg-[#f8fafc] rounded-2xl border border-slate-200 overflow-hidden">
+                <!-- App Header -->
+                <div class="bg-white px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center">
+                      <iconify-icon icon="solar:heart-pulse-bold" class="text-accent" width="14"></iconify-icon>
+                    </div>
+                    <span class="text-sm font-bold text-navy">ONTOH Health</span>
+                  </div>
+                  <span class="text-[10px] text-[#94a3b8]">작업자 등록</span>
+                </div>
+                <!-- Registration Steps -->
+                <div class="p-5 space-y-3">
+                  <!-- Step indicator -->
+                  <div class="flex items-center gap-2 mb-4">
+                    <div class="w-6 h-6 rounded-full bg-accent text-white text-[10px] font-bold flex items-center justify-center">1</div>
+                    <div class="flex-1 h-1 rounded-full bg-accent"></div>
+                    <div class="w-6 h-6 rounded-full bg-accent text-white text-[10px] font-bold flex items-center justify-center">2</div>
+                    <div class="flex-1 h-1 rounded-full bg-accent"></div>
+                    <div class="w-6 h-6 rounded-full bg-accent text-white text-[10px] font-bold flex items-center justify-center">3</div>
+                    <div class="flex-1 h-1 rounded-full bg-slate-200"></div>
+                    <div class="w-6 h-6 rounded-full bg-slate-200 text-slate-400 text-[10px] font-bold flex items-center justify-center">4</div>
+                  </div>
+                  <!-- Form fields -->
+                  <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <p class="text-[10px] text-[#94a3b8] mb-1">이름</p>
+                    <p class="text-sm font-semibold text-[#0f172a]">김철수</p>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <p class="text-[10px] text-[#94a3b8] mb-1">생년월일</p>
+                    <p class="text-sm font-semibold text-[#0f172a]">1978.03.15</p>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <p class="text-[10px] text-[#94a3b8] mb-1">간편인증</p>
+                    <div class="flex items-center gap-2 mt-1">
+                      <div class="flex items-center gap-1.5 bg-[#FEE500] rounded-lg px-3 py-1.5">
+                        <span class="text-[10px] font-bold text-[#3C1E1E]">카카오</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 bg-[#03C75A] rounded-lg px-3 py-1.5">
+                        <span class="text-[10px] font-bold text-white">네이버</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 bg-[#1a1a1a] rounded-lg px-3 py-1.5">
+                        <span class="text-[10px] font-bold text-white">PASS</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Success state -->
+                  <div class="bg-accent/5 border border-accent/15 rounded-xl p-4 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                      <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="18"></iconify-icon>
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-accent">인증 완료</p>
+                      <p class="text-[10px] text-[#64748b]">10년치 검진 데이터 수집 중...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: Visual Left, Text Right -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- CSS Mockup: Dashboard with Worker Table -->
+        <div class="reveal order-2 lg:order-1" style="--index:1">
+          <div class="double-bezel">
+            <div class="double-bezel-inner !p-6">
+              <div class="bg-[#f8fafc] rounded-2xl border border-slate-200 overflow-hidden">
+                <!-- 좌우 분할: 업체별 작업자 리스트 + 상세 -->
+                <div class="flex">
+                  <!-- 왼쪽: 작업자 리스트 -->
+                  <div class="w-[140px] border-r border-slate-200 bg-white flex-shrink-0">
+                    <div class="px-3 py-2.5 border-b border-slate-100">
+                      <p class="text-[9px] font-bold text-navy">작업자 목록</p>
+                    </div>
+                    <!-- 업체 1 -->
+                    <div class="px-3 py-2 border-b border-slate-50">
+                      <p class="text-[8px] text-[#94a3b8] font-semibold mb-1">성우도장</p>
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 bg-accent/5 rounded-lg px-2 py-1.5 border border-accent/15">
+                          <div class="w-1.5 h-1.5 rounded-full bg-danger"></div>
+                          <span class="text-[9px] font-semibold text-accent">박도현</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 rounded-lg px-2 py-1">
+                          <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                          <span class="text-[9px] text-[#64748b]">이서진</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 업체 2 -->
+                    <div class="px-3 py-2">
+                      <p class="text-[8px] text-[#94a3b8] font-semibold mb-1">전건철근</p>
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 rounded-lg px-2 py-1">
+                          <div class="w-1.5 h-1.5 rounded-full bg-warning"></div>
+                          <span class="text-[9px] text-[#64748b]">김하늘</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 rounded-lg px-2 py-1">
+                          <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                          <span class="text-[9px] text-[#64748b]">정민준</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 오른쪽: 선택된 작업자 상세 -->
+                  <div class="flex-1">
+                    <!-- 작업자 프로필 -->
+                    <div class="flex items-center gap-3 p-4 pb-3 border-b border-slate-100">
+                      <div class="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center">
+                        <iconify-icon icon="solar:user-bold" class="text-navy" width="20"></iconify-icon>
+                      </div>
+                      <div>
+                        <p class="text-sm font-bold text-[#0f172a]">박도현</p>
+                        <p class="text-[10px] text-[#94a3b8]">성우도장 | 만 58세 | 도장공</p>
+                      </div>
+                    </div>
+                <div class="p-4">
+                  <!-- 즉시 조치 필요 경고 -->
+                  <div class="bg-danger/5 border border-danger/15 rounded-xl px-4 py-3 mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:danger-triangle-bold" class="text-danger" width="16"></iconify-icon>
+                    <div>
+                      <p class="text-xs font-bold text-danger">즉시 조치 필요</p>
+                      <p class="text-[10px] text-[#64748b]">작업전환 1건 · 추적검사 1건 · 재검사 1건</p>
+                    </div>
+                  </div>
+                  <!-- 유해인자별 검진결과 -->
+                  <p class="text-[11px] font-bold text-navy mb-3">유해인자별 검진결과</p>
+                  <div class="space-y-2">
+                    <div class="bg-white rounded-lg p-2.5 border border-slate-100">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                          <div class="flex items-center gap-1.5 mb-1">
+                            <p class="text-[11px] font-bold text-[#0f172a]">크실렌</p>
+                            <span class="text-[9px] font-bold text-danger bg-danger/8 px-1.5 py-0.5 rounded">D2</span>
+                            <span class="text-[9px] text-[#64748b] bg-slate-50 px-1.5 py-0.5 rounded">작업전환</span>
+                          </div>
+                          <p class="text-[9px] text-[#94a3b8]">작업 전환 권고</p>
+                        </div>
+                        <div class="flex items-center gap-1 ml-2">
+                          <div class="w-3.5 h-3.5 rounded border-2 border-accent bg-accent flex items-center justify-center">
+                            <iconify-icon icon="solar:check-read-linear" class="text-white" width="8"></iconify-icon>
+                          </div>
+                          <span class="text-[8px] text-accent font-medium">완료</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-lg p-2.5 border border-slate-100">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                          <div class="flex items-center gap-1.5 mb-1">
+                            <p class="text-[11px] font-bold text-[#0f172a]">메틸에틸케톤</p>
+                            <span class="text-[9px] font-bold text-warning bg-warning/8 px-1.5 py-0.5 rounded">C2</span>
+                            <span class="text-[9px] text-[#64748b] bg-slate-50 px-1.5 py-0.5 rounded">추적검사</span>
+                          </div>
+                          <p class="text-[9px] text-[#94a3b8]">요관찰 · 정기 추적검사 필요</p>
+                        </div>
+                        <div class="flex items-center gap-1 ml-2">
+                          <div class="w-3.5 h-3.5 rounded border-2 border-accent bg-accent flex items-center justify-center">
+                            <iconify-icon icon="solar:check-read-linear" class="text-white" width="8"></iconify-icon>
+                          </div>
+                          <span class="text-[8px] text-accent font-medium">완료</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-lg p-2.5 border border-slate-100">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                          <div class="flex items-center gap-1.5 mb-1">
+                            <p class="text-[11px] font-bold text-[#0f172a]">소음</p>
+                            <span class="text-[9px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded">R</span>
+                            <span class="text-[9px] text-[#64748b] bg-slate-50 px-1.5 py-0.5 rounded">재검사</span>
+                          </div>
+                          <p class="text-[9px] text-[#94a3b8]">2차 검진 필요</p>
+                        </div>
+                        <div class="flex items-center gap-1 ml-2">
+                          <div class="w-3.5 h-3.5 rounded border-2 border-slate-300 bg-white"></div>
+                          <span class="text-[8px] text-[#94a3b8]">완료</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-lg p-2.5 border border-slate-100">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                          <div class="flex items-center gap-1.5 mb-1">
+                            <p class="text-[11px] font-bold text-[#0f172a]">자외선</p>
+                            <span class="text-[9px] font-bold text-accent bg-accent/8 px-1.5 py-0.5 rounded">A</span>
+                            <span class="text-[9px] text-[#64748b] bg-slate-50 px-1.5 py-0.5 rounded">필요없음</span>
+                          </div>
+                          <p class="text-[9px] text-[#94a3b8]">건강양호</p>
+                        </div>
+                        <div class="flex items-center gap-1 ml-2">
+                          <iconify-icon icon="solar:check-circle-bold" class="text-accent/40" width="14"></iconify-icon>
+                          <span class="text-[8px] text-[#94a3b8]">불필요</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal order-1 lg:order-2">
+          <div class="inline-flex items-center gap-2 bg-accent/8 rounded-full px-3 py-1 mb-4">
+            <span class="text-accent text-xs font-semibold">관리자 기능</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-navy mb-5 leading-tight">
+            관리자를 위한 핵심 기능
+          </h3>
+          <p class="text-[#334155] leading-relaxed mb-8">
+            작업자 건강 상태를 한눈에 파악하고, 필요한 조치를 바로 확인합니다.
+          </p>
+
+          <!-- 4 feature cards in 2x2 grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+              <div class="w-9 h-9 rounded-lg bg-danger/8 flex items-center justify-center mb-3">
+                <iconify-icon icon="solar:chart-bold" class="text-danger" width="18"></iconify-icon>
+              </div>
+              <h4 class="text-sm font-bold text-navy mb-1">민감군 대시보드</h4>
+              <p class="text-xs text-[#64748b]">현장별 고위험군 현황을 실시간으로 파악</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+              <div class="w-9 h-9 rounded-lg bg-warning/8 flex items-center justify-center mb-3">
+                <iconify-icon icon="solar:bell-bold" class="text-warning" width="18"></iconify-icon>
+              </div>
+              <h4 class="text-sm font-bold text-navy mb-1">미등록자 알림</h4>
+              <p class="text-xs text-[#64748b]">미등록 작업자를 자동 식별하고 독촉</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+              <div class="w-9 h-9 rounded-lg bg-accent-blue/8 flex items-center justify-center mb-3">
+                <iconify-icon icon="solar:test-tube-bold" class="text-accent" width="18"></iconify-icon>
+              </div>
+              <h4 class="text-sm font-bold text-navy mb-1">유해인자별 검진결과 조회</h4>
+              <p class="text-xs text-[#64748b]">유해인자별 건강구분 및 조치현황 확인</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+              <div class="w-9 h-9 rounded-lg bg-accent/8 flex items-center justify-center mb-3">
+                <iconify-icon icon="solar:file-download-bold" class="text-accent" width="18"></iconify-icon>
+              </div>
+              <h4 class="text-sm font-bold text-navy mb-1">엑셀 출력 & 조치완료 체크</h4>
+              <p class="text-xs text-[#64748b]">기존 보고 양식 호환 엑셀 출력 + 조치 이행 체크</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 5: 현장 보건 현황판 ==================== -->
+  <section class="section-spacious bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section heading -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 bg-navy/5 border border-navy/10 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="solar:monitor-smartphone-bold" class="text-navy" width="14"></iconify-icon>
+          <span class="text-navy text-sm font-semibold">대시보드</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
+          관리자와 작업자, <span class="text-accent">모두를 위한</span> 화면<span class="accent-dot">.</span>
+        </h2>
+        <p class="text-[#64748b] mt-4 text-lg max-w-2xl mx-auto">관리자는 대시보드에서 전체 현황을,<br>작업자는 모바일 앱에서 개인 건강 리포트를 확인합니다.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+        <!-- Left: Admin Dashboard (3 cols) -->
+        <div class="lg:col-span-3 reveal">
+          <div class="double-bezel">
+            <div class="double-bezel-inner !p-6 sm:!p-8">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <p class="text-xs text-[#64748b] mb-1">ONTOH Health 관리자</p>
+                  <h3 class="text-xl font-bold text-navy">관리자 대시보드</h3>
+                </div>
+                <div class="flex items-center gap-2 bg-accent/8 rounded-full px-3 py-1">
+                  <div class="w-2 h-2 rounded-full bg-accent"></div>
+                  <span class="text-xs text-accent font-medium">실시간</span>
+                </div>
+              </div>
+
+              <!-- KPI Cards -->
+              <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="dash-card">
+                  <p class="text-xs text-[#64748b] mb-1">등록 작업자</p>
+                  <p class="text-2xl font-extrabold text-navy">156</p>
+                  <p class="text-[10px] text-accent mt-1">전체 등록 완료</p>
+                </div>
+                <div class="dash-card border-danger/20">
+                  <p class="text-xs text-[#64748b] mb-1">고위험군</p>
+                  <p class="text-2xl font-extrabold text-danger">12</p>
+                  <p class="text-[10px] text-danger mt-1">즉시 관리 필요</p>
+                </div>
+                <div class="dash-card border-warning/20">
+                  <p class="text-xs text-[#64748b] mb-1">미등록자</p>
+                  <p class="text-2xl font-extrabold text-warning">8</p>
+                  <p class="text-[10px] text-warning mt-1">독촉 발송 대기</p>
+                </div>
+              </div>
+
+              <!-- 작업자 테이블 -->
+              <div class="bg-white rounded-xl border border-slate-100 overflow-hidden mt-5">
+                <div class="grid grid-cols-[1fr_1fr_1fr_80px] gap-0 text-[10px] font-semibold text-[#94a3b8] bg-slate-50 px-3 py-2 border-b border-slate-100">
+                  <span>이름</span>
+                  <span>공종</span>
+                  <span>건강구분</span>
+                  <span>상태</span>
+                </div>
+                <div class="grid grid-cols-[1fr_1fr_1fr_80px] gap-0 text-[11px] px-3 py-2.5 border-b border-slate-50 items-center">
+                  <span class="font-medium text-[#0f172a]">박도현</span>
+                  <span class="text-[#64748b]">도장</span>
+                  <span class="text-danger font-medium">D2</span>
+                  <span class="bg-danger/8 text-danger text-[9px] font-semibold px-2 py-0.5 rounded-full text-center">고위험</span>
+                </div>
+                <div class="grid grid-cols-[1fr_1fr_1fr_80px] gap-0 text-[11px] px-3 py-2.5 border-b border-slate-50 items-center">
+                  <span class="font-medium text-[#0f172a]">이서진</span>
+                  <span class="text-[#64748b]">도장</span>
+                  <span class="text-warning font-medium">C2</span>
+                  <span class="bg-warning/8 text-warning text-[9px] font-semibold px-2 py-0.5 rounded-full text-center">주의</span>
+                </div>
+                <div class="grid grid-cols-[1fr_1fr_1fr_80px] gap-0 text-[11px] px-3 py-2.5 border-b border-slate-50 items-center">
+                  <span class="font-medium text-[#0f172a]">김하늘</span>
+                  <span class="text-[#64748b]">철근</span>
+                  <span class="text-accent font-medium">A</span>
+                  <span class="bg-accent/8 text-accent text-[9px] font-semibold px-2 py-0.5 rounded-full text-center">정상</span>
+                </div>
+                <div class="grid grid-cols-[1fr_1fr_1fr_80px] gap-0 text-[11px] px-3 py-2.5 items-center">
+                  <span class="font-medium text-[#0f172a]">정민준</span>
+                  <span class="text-[#64748b]">철근</span>
+                  <span class="text-[#64748b]">-</span>
+                  <span class="bg-slate-100 text-[#94a3b8] text-[9px] font-semibold px-2 py-0.5 rounded-full text-center">미등록</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Two Phone Mockups (2 cols) -->
+        <div class="lg:col-span-2 reveal" style="--index:1">
+          <p class="text-xs text-[#64748b] mb-4 font-semibold tracking-wide text-center lg:text-left">작업자 모바일 앱</p>
+          <div class="flex gap-5 justify-center">
+            <!-- Phone 1: Health Report -->
+            <div class="phone-mockup !w-[180px] !h-[370px] !rounded-[1.8rem] !border-[3px]" style="animation: floatSlow 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;">
+              <div class="phone-notch !w-[80px] !h-[20px]"></div>
+              <div class="w-full h-full bg-gradient-to-b from-[#f8fafc] to-white p-4 pt-8 flex flex-col">
+                <p class="text-accent text-[9px] font-semibold text-center mb-1">건강 리포트</p>
+                <p class="text-navy text-xs font-bold text-center mb-3">나의 건강나이</p>
+                <div class="bg-navy/5 rounded-xl p-3 mb-3 border border-navy/10 text-center">
+                  <span class="text-2xl font-extrabold text-navy">58</span>
+                  <span class="text-[#94a3b8] text-[10px] ml-0.5">세</span>
+                  <div class="w-full bg-navy/10 rounded-full h-1.5 mt-2">
+                    <div class="bg-gradient-to-r from-accent to-danger h-1.5 rounded-full" style="width: 78%"></div>
+                  </div>
+                </div>
+                <div class="space-y-1.5 flex-1">
+                  <div class="flex items-center gap-2 bg-danger/5 rounded-lg px-2 py-1.5 border border-danger/10">
+                    <iconify-icon icon="solar:danger-triangle-bold" class="text-danger" width="11"></iconify-icon>
+                    <span class="text-[#0f172a] text-[9px]">고혈압 D2</span>
+                  </div>
+                  <div class="flex items-center gap-2 bg-warning/5 rounded-lg px-2 py-1.5 border border-warning/10">
+                    <iconify-icon icon="solar:shield-warning-bold" class="text-warning" width="11"></iconify-icon>
+                    <span class="text-[#0f172a] text-[9px]">공복혈당 주의</span>
+                  </div>
+                  <div class="flex items-center gap-2 bg-accent/5 rounded-lg px-2 py-1.5 border border-accent/10">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="11"></iconify-icon>
+                    <span class="text-[#0f172a] text-[9px]">간기능 정상</span>
+                  </div>
+                </div>
+                <div class="bg-navy/5 rounded-lg p-2 text-center mt-2 border border-navy/10">
+                  <p class="text-[8px] text-[#94a3b8]">심뇌혈관 위험</p>
+                  <p class="text-accent text-[10px] font-bold">중등도 위험</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone 2: QR Check-in -->
+            <div class="phone-mockup !w-[180px] !h-[370px] !rounded-[1.8rem] !border-[3px] mt-8" style="animation: floatSlow 6s cubic-bezier(0.16, 1, 0.3, 1) infinite 0.5s;">
+              <div class="phone-notch !w-[80px] !h-[20px]"></div>
+              <div class="w-full h-full bg-gradient-to-b from-[#f0f3fa] to-white p-4 pt-8 flex flex-col">
+                <p class="text-accent text-[9px] font-semibold text-center mb-1">현장 배치</p>
+                <p class="text-navy text-xs font-bold text-center mb-4">QR 체크인</p>
+                <!-- QR placeholder -->
+                <div class="bg-white rounded-2xl p-4 mx-auto mb-4 flex items-center justify-center">
+                  <div class="w-24 h-24 grid grid-cols-5 grid-rows-5 gap-0.5">
+                    <div class="bg-[#0f172a] rounded-sm col-span-2 row-span-2"></div>
+                    <div class="bg-transparent"></div>
+                    <div class="bg-[#0f172a] rounded-sm col-span-2 row-span-2"></div>
+                    <div class="bg-transparent col-span-3 row-span-1"></div>
+                    <div class="bg-[#0f172a] rounded-sm"></div>
+                    <div class="bg-transparent"></div>
+                    <div class="bg-[#0f172a] rounded-sm col-span-2 row-span-2"></div>
+                    <div class="bg-transparent"></div>
+                    <div class="bg-[#0f172a] rounded-sm"></div>
+                    <div class="bg-transparent"></div>
+                  </div>
+                </div>
+                <div class="bg-accent/5 rounded-xl p-3 border border-accent/15 text-center mb-3">
+                  <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="20"></iconify-icon>
+                  <p class="text-[#0f172a] text-[10px] font-semibold mt-1">배치 가능</p>
+                  <p class="text-[#94a3b8] text-[8px]">건강상태 이상 없음</p>
+                </div>
+                <div class="space-y-1.5 mt-auto">
+                  <div class="flex justify-between text-[8px]">
+                    <span class="text-[#94a3b8]">현장</span>
+                    <span class="text-[#334155]">마포구 현장 A</span>
+                  </div>
+                  <div class="flex justify-between text-[8px]">
+                    <span class="text-[#94a3b8]">공종</span>
+                    <span class="text-[#334155]">철근</span>
+                  </div>
+                  <div class="flex justify-between text-[8px]">
+                    <span class="text-[#94a3b8]">체크인</span>
+                    <span class="text-accent text-[8px] font-semibold">07:42 완료</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 6: 건강 리포트 ==================== -->
+  <section class="section-spacious bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section heading -->
+      <div class="max-w-3xl mb-16 reveal">
+        <div class="inline-flex items-center gap-2 bg-accent-blue/8 border border-accent-blue/12 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="solar:graph-up-bold" class="text-accent" width="14"></iconify-icon>
+          <span class="text-accent text-sm font-semibold">건강 리포트</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy leading-tight mb-4">
+          국민건강보험공단 검진 데이터를 <span class="text-accent">한눈에 정리</span>합니다<span class="accent-dot">.</span>
+        </h2>
+        <p class="text-[#64748b] text-lg">공단에서 제공하는 검진 결과를 기반으로 건강 상태를 시각화합니다.<br>흩어진 데이터를 모아 작업자가 자신의 건강을 쉽게 이해할 수 있도록 정리합니다.</p>
+      </div>
+
+      <!-- 2x2 Grid -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Card 1: 건강나이 -->
+        <div class="reveal" style="--index:0">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="flex items-start gap-4 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-navy/8 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:users-group-two-rounded-bold" class="text-navy" width="24"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-navy mb-1">건강나이</h3>
+                  <p class="text-sm text-[#64748b]">공단 검진 기반 건강나이를 직관적으로 표시합니다</p>
+                </div>
+              </div>
+              <div class="bg-[#f8fafc] rounded-xl p-5 border border-slate-100">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-4xl font-extrabold text-danger">58</span>
+                    <span class="text-sm text-[#64748b]">세</span>
+                  </div>
+                  <span class="text-sm font-semibold text-danger">실제나이 +6세</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: 심뇌혈관 위험 예측 -->
+        <div class="reveal" style="--index:1">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="flex items-start gap-4 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-danger/8 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:heart-pulse-bold" class="text-danger" width="24"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-navy mb-1">심뇌혈관 위험 예측</h3>
+                  <p class="text-sm text-[#64748b]">3년 내 발병 확률과 위험 요인을 분석합니다</p>
+                </div>
+              </div>
+              <div class="bg-[#f8fafc] rounded-xl p-4 border border-slate-100">
+                <!-- 발병 확률 + 위험등급 -->
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <p class="text-[10px] text-[#64748b] mb-1">3년 내 발병 확률</p>
+                    <p class="text-2xl font-extrabold text-danger">27.3<span class="text-sm font-normal text-[#64748b]">%</span></p>
+                  </div>
+                  <span class="bg-danger/10 text-danger text-xs font-bold px-3 py-1 rounded-full border border-danger/20">고위험</span>
+                </div>
+                <!-- 위험 요인 분석 -->
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-[#64748b] w-20">체질량지수</span>
+                    <span class="font-bold text-danger">38.0</span>
+                    <span class="text-[#94a3b8]">정상 18.5-24.9</span>
+                    <span class="text-[9px] bg-danger/10 text-danger px-1.5 py-0.5 rounded font-semibold">고위험</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-[#64748b] w-20">공복혈당</span>
+                    <span class="font-bold text-warning">115</span>
+                    <span class="text-[#94a3b8]">정상 100 미만</span>
+                    <span class="text-[9px] bg-warning/10 text-warning px-1.5 py-0.5 rounded font-semibold">관심 3</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-[#64748b] w-20">중성지방</span>
+                    <span class="font-bold text-warning">210</span>
+                    <span class="text-[#94a3b8]">정상 150 이하</span>
+                    <span class="text-[9px] bg-warning/10 text-warning px-1.5 py-0.5 rounded font-semibold">관심 2</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-[#64748b] w-20">LDL콜레스테롤</span>
+                    <span class="font-bold text-amber-500">135</span>
+                    <span class="text-[#94a3b8]">정상 100-129</span>
+                    <span class="text-[9px] bg-amber-50 text-amber-600 px-1.5 py-0.5 rounded font-semibold">관심 1</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-[#64748b] w-20">HDL콜레스테롤</span>
+                    <span class="font-bold text-[#334155]">52</span>
+                    <span class="text-[#94a3b8]">정상 60 이상</span>
+                    <span class="text-[9px] bg-slate-100 text-[#64748b] px-1.5 py-0.5 rounded font-semibold">보통</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: 유사집단 비교 -->
+        <div class="reveal" style="--index:2">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="flex items-start gap-4 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-accent/8 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:chart-2-bold" class="text-accent" width="24"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-navy mb-1">유사집단 비교</h3>
+                  <p class="text-sm text-[#64748b]">동일 연령/성별/직종 집단과 비교합니다</p>
+                </div>
+              </div>
+              <div class="bg-[#f8fafc] rounded-xl p-5 border border-slate-100">
+                <!-- 체질량지수 수치 + 등급 -->
+                <div class="flex items-center justify-between mb-5">
+                  <div>
+                    <p class="text-[10px] text-[#64748b] mb-1">체질량지수</p>
+                    <div class="flex items-baseline gap-1">
+                      <span class="text-2xl font-extrabold text-danger">38.0</span>
+                      <span class="text-xs text-[#64748b]">kg/m²</span>
+                    </div>
+                  </div>
+                  <span class="bg-danger/10 text-danger text-xs font-bold px-3 py-1 rounded-full border border-danger/20">고위험</span>
+                </div>
+                <!-- 유사집단 비교 수평 바 (15~40 범위) -->
+                <p class="text-[10px] text-[#64748b] mb-2">유사집단 비교</p>
+                <div class="flex items-center gap-3 mb-2 text-[9px] text-[#94a3b8]">
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-danger inline-block"></span> 나의 검진 결과</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-accent inline-block"></span> 유사 집단 평균</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm inline-block" style="background:rgba(5,150,105,0.15);"></span> 정상 범위</span>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-slate-100">
+                  <!-- 수평 바: x축 15~40 -->
+                  <div class="relative h-8 mb-2">
+                    <!-- 정상범위 18.5~24.9 → left: 14%, width: 25.6% -->
+                    <div class="absolute top-1/2 -translate-y-1/2 h-6 bg-accent/10 rounded" style="left: 14%; width: 25.6%;"></div>
+                    <!-- 전체 축 -->
+                    <div class="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-0.5 bg-slate-200"></div>
+                    <!-- 유사집단 21.6 → (21.6-15)/(40-15) = 26.4% -->
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left: 26.4%;">
+                      <div class="w-3.5 h-3.5 rounded-full bg-accent border-2 border-white shadow-sm -ml-1.5"></div>
+                    </div>
+                    <!-- 나 38.0 → (38-15)/(40-15) = 92% -->
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left: 92%;">
+                      <div class="w-3.5 h-3.5 rounded-full bg-danger border-2 border-white shadow-sm -ml-1.5"></div>
+                    </div>
+                  </div>
+                  <!-- 라벨 -->
+                  <div class="relative h-4 text-[9px] font-semibold">
+                    <span class="absolute text-accent" style="left: 22%;">21.6</span>
+                    <span class="absolute text-danger" style="left: 88%;">38.0</span>
+                  </div>
+                  <!-- X축 눈금 -->
+                  <div class="flex justify-between text-[8px] text-[#94a3b8] mt-1">
+                    <span>15</span>
+                    <span>20</span>
+                    <span>25</span>
+                    <span>30</span>
+                    <span>35</span>
+                    <span>40</span>
+                    <span class="ml-1">kg/m²</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: 연도별 건강 추이 -->
+        <div class="reveal" style="--index:3">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="flex items-start gap-4 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-accent/8 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:graph-new-bold" class="text-accent" width="24"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-navy mb-1">연도별 건강 추이</h3>
+                  <p class="text-sm text-[#64748b]">10년간 검진 이력을 시계열로 시각화합니다</p>
+                </div>
+              </div>
+              <div class="bg-[#f8fafc] rounded-xl p-4 border border-slate-100">
+                <p class="text-[10px] text-[#64748b] mb-1">체질량지수 (BMI) 추이</p>
+                <div class="flex items-center gap-4 mb-3">
+                  <span class="text-[10px] text-[#64748b] flex items-center gap-1"><span class="w-3 h-0.5 bg-danger rounded-full inline-block"></span> 나의 검진 결과</span>
+                  <span class="text-[10px] text-[#64748b] flex items-center gap-1"><span class="w-3 h-0.5 rounded-full inline-block" style="background:#059669;"></span> 유사 집단 평균</span>
+                  <span class="text-[10px] text-[#64748b] flex items-center gap-1"><span class="w-2 h-2 rounded-sm inline-block" style="background:rgba(5,150,105,0.15);"></span> 정상 범위</span>
+                </div>
+                <!-- SVG chart: 체질량지수 나 vs 유사집단 (2023~2025) -->
+                <div class="bg-white rounded-lg p-4 border border-slate-100 mt-3">
+                <svg viewBox="0 0 300 130" class="w-full max-w-[360px] h-auto mx-auto mt-4" fill="none">
+                  <!-- Y축 눈금: 15~40 매핑, chart area y=10~85 (3px per unit) -->
+                  <text x="0" y="14" fill="#94a3b8" font-size="8">40</text>
+                  <text x="0" y="29" fill="#94a3b8" font-size="8">35</text>
+                  <text x="0" y="44" fill="#94a3b8" font-size="8">30</text>
+                  <text x="0" y="59" fill="#94a3b8" font-size="8">25</text>
+                  <text x="0" y="74" fill="#94a3b8" font-size="8">20</text>
+                  <text x="0" y="89" fill="#94a3b8" font-size="8">15</text>
+                  <!-- 가로 눈금선 -->
+                  <line x1="25" y1="10" x2="290" y2="10" stroke="#e2e8f0" stroke-width="0.5"/>
+                  <line x1="25" y1="25" x2="290" y2="25" stroke="#e2e8f0" stroke-width="0.3" stroke-dasharray="3,3"/>
+                  <line x1="25" y1="40" x2="290" y2="40" stroke="#e2e8f0" stroke-width="0.5"/>
+                  <line x1="25" y1="55" x2="290" y2="55" stroke="#e2e8f0" stroke-width="0.3" stroke-dasharray="3,3"/>
+                  <line x1="25" y1="70" x2="290" y2="70" stroke="#e2e8f0" stroke-width="0.5"/>
+                  <line x1="25" y1="85" x2="290" y2="85" stroke="#e2e8f0" stroke-width="0.5"/>
+                  <!-- 정상범위 18.5~24.9 → y: 56.5~65.5 -->
+                  <rect x="25" y="55" width="265" height="12" fill="#059669" opacity="0.08" rx="2"/>
+                  <!-- 유사집단 평균 21.6 → y=64.2 -->
+                  <polyline points="50,64 157,64 265,64" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="50" cy="64" r="3.5" fill="#059669"/>
+                  <circle cx="157" cy="64" r="3.5" fill="#059669"/>
+                  <circle cx="265" cy="64" r="3.5" fill="#059669"/>
+                  <!-- 나의 결과: 35→37→38 → y: 25→19→16 -->
+                  <polyline points="50,25 157,19 265,16" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="50" cy="25" r="3.5" fill="#ef4444"/>
+                  <circle cx="157" cy="19" r="3.5" fill="#ef4444"/>
+                  <circle cx="265" cy="16" r="3.5" fill="#ef4444"/>
+                  <!-- 수치 라벨 -->
+                  <text x="57" y="23" fill="#ef4444" font-size="7" font-weight="bold">35</text>
+                  <text x="164" y="17" fill="#ef4444" font-size="7" font-weight="bold">37</text>
+                  <text x="272" y="14" fill="#ef4444" font-size="7" font-weight="bold">38.0</text>
+                  <text x="57" y="75" fill="#059669" font-size="7" font-weight="bold">21.6</text>
+                  <text x="164" y="75" fill="#059669" font-size="7" font-weight="bold">21.6</text>
+                  <text x="272" y="75" fill="#059669" font-size="7" font-weight="bold">21.6</text>
+                  <!-- X축 연도 -->
+                  <text x="42" y="100" fill="#94a3b8" font-size="9">2023</text>
+                  <text x="148" y="100" fill="#94a3b8" font-size="9">2024</text>
+                  <text x="255" y="100" fill="#94a3b8" font-size="9">2025</text>
+                </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 7: 직종별 유해인자 자동 매핑 ==================== -->
+  <section class="section-spacious bg-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 bg-accent/5 border border-accent/15 rounded-full px-4 py-1.5 mb-6">
+            <iconify-icon icon="solar:atom-bold" class="text-accent" width="14"></iconify-icon>
+            <span class="text-accent text-sm font-semibold">유해인자 매핑</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-navy leading-tight mb-5">
+            직종을 선택하면,<br>유해인자가 <span class="text-accent">자동으로 매핑</span>됩니다<span class="accent-dot">.</span>
+          </h2>
+          <p class="text-[#334155] text-lg leading-relaxed mb-8">
+            공종과 직종을 선택하면 해당 직종에서 노출되는 유해인자 목록이 자동으로 설정됩니다.<br>관리자가 일일이 찾아볼 필요 없이, 유해인자별 건강검진 항목과 관리 기준이 즉시 연동됩니다.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 shrink-0">
+                <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+              </div>
+              <span class="text-sm text-[#334155]">공종/직종 선택만으로 유해인자 자동 설정</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 shrink-0">
+                <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+              </div>
+              <span class="text-sm text-[#334155]">유해인자별 필요 검진 항목 즉시 확인</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 shrink-0">
+                <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+              </div>
+              <span class="text-sm text-[#334155]">관리 기준과 검진 주기 자동 연동</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: CSS Mockup - Mapping Flow -->
+        <div class="reveal" style="--index:1">
+          <div class="double-bezel">
+            <div class="double-bezel-inner !p-6">
+              <div class="space-y-4">
+                <!-- Step 1: 공종 선택 -->
+                <div class="bg-[#f8fafc] rounded-xl p-4 border border-slate-200">
+                  <p class="text-[10px] text-[#94a3b8] font-semibold mb-2 tracking-wide">STEP 1 &mdash; 공종 선택</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-white border border-slate-200 text-[#64748b] text-xs px-3 py-1.5 rounded-lg">철근</span>
+                    <span class="bg-white border border-slate-200 text-[#64748b] text-xs px-3 py-1.5 rounded-lg">용접</span>
+                    <span class="bg-accent text-white text-xs px-3 py-1.5 rounded-lg font-semibold shadow-sm shadow-accent/20">도장</span>
+                    <span class="bg-white border border-slate-200 text-[#64748b] text-xs px-3 py-1.5 rounded-lg">배관</span>
+                    <span class="bg-white border border-slate-200 text-[#64748b] text-xs px-3 py-1.5 rounded-lg">전기</span>
+                  </div>
+                </div>
+
+                <!-- Arrow down -->
+                <div class="flex justify-center">
+                  <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <iconify-icon icon="solar:alt-arrow-down-bold" class="text-accent" width="16"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- Step 2: 직종 선택 -->
+                <div class="bg-[#f8fafc] rounded-xl p-4 border border-slate-200">
+                  <p class="text-[10px] text-[#94a3b8] font-semibold mb-2 tracking-wide">STEP 2 &mdash; 직종 선택</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-accent text-white text-xs px-3 py-1.5 rounded-lg font-semibold shadow-sm shadow-accent/20">도장공</span>
+                    <span class="bg-white border border-slate-200 text-[#64748b] text-xs px-3 py-1.5 rounded-lg">방수공</span>
+                    <span class="bg-white border border-slate-200 text-[#64748b] text-xs px-3 py-1.5 rounded-lg">미장공</span>
+                  </div>
+                </div>
+
+                <!-- Arrow down -->
+                <div class="flex justify-center">
+                  <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <iconify-icon icon="solar:alt-arrow-down-bold" class="text-accent" width="16"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- Step 3: 유해인자 자동 매핑 결과 -->
+                <div class="bg-accent/5 rounded-xl p-4 border-2 border-accent/20">
+                  <p class="text-[10px] text-accent font-semibold mb-3 tracking-wide flex items-center gap-1.5">
+                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-accent" width="12"></iconify-icon>
+                    자동 매핑 결과
+                  </p>
+                  <div class="space-y-2 mb-4">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] text-[#94a3b8] w-16 shrink-0">유해인자</span>
+                      <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-white border border-accent/20 text-[#334155] text-[11px] px-2.5 py-1 rounded-lg font-medium">크실렌</span>
+                        <span class="bg-white border border-accent/20 text-[#334155] text-[11px] px-2.5 py-1 rounded-lg font-medium">메틸에틸케톤</span>
+                        <span class="bg-white border border-accent/20 text-[#334155] text-[11px] px-2.5 py-1 rounded-lg font-medium">톨루엔</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] text-[#94a3b8] w-16 shrink-0">검진 항목</span>
+                      <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-white border border-slate-200 text-[#64748b] text-[11px] px-2.5 py-1 rounded-lg">간기능</span>
+                        <span class="bg-white border border-slate-200 text-[#64748b] text-[11px] px-2.5 py-1 rounded-lg">신장기능</span>
+                        <span class="bg-white border border-slate-200 text-[#64748b] text-[11px] px-2.5 py-1 rounded-lg">신경계</span>
+                        <span class="bg-white border border-slate-200 text-[#64748b] text-[11px] px-2.5 py-1 rounded-lg">조혈기</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 border border-accent/10">
+                    <div class="flex items-center gap-2">
+                      <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="14"></iconify-icon>
+                      <span class="text-xs text-[#334155] font-medium">특수건강검진 대상 &mdash; 검진 주기: 12개월</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 8: COMPLIANCE ==================== -->
+  <section class="section-spacious bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 bg-navy/8 border border-navy/10 rounded-full px-4 py-1.5 mb-5">
+          <iconify-icon icon="solar:verified-check-bold" width="16" class="text-navy"></iconify-icon>
+          <span class="text-xs font-semibold text-navy tracking-wider uppercase">Compliance</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mb-4">
+          법적 의무를 체계적으로 이행하고,<br><span class="text-accent">증빙을 자동으로</span> 확보합니다<span class="accent-dot">.</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Law Card 1 -->
+        <div class="reveal" style="--index: 0">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="flex items-start gap-4 mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-navy flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:book-2-bold" width="24" class="text-white"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-lg mb-1">산업안전보건법 제129조</h3>
+                  <span class="text-xs text-[#64748b]">배치전 건강검진, 특수건강검진 실시 의무</span>
+                </div>
+              </div>
+              <div class="bg-[#f8fafc] border border-navy/5 rounded-xl p-4 mb-4">
+                <div class="flex items-start gap-3">
+                  <iconify-icon icon="solar:arrow-right-bold" width="16" class="text-accent mt-0.5 flex-shrink-0"></iconify-icon>
+                  <p class="text-sm text-[#334155] leading-relaxed">검진 결과 자동 연동으로 배치전 건강검진 이행 여부를 실시간 확인.<br>미실시자 자동 알림 및 이력 관리를 통해 법적 의무 이행 증빙을 확보합니다.</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-navy/8 text-navy font-medium px-3 py-1.5 rounded-full">산업안전보건법</span>
+                <span class="text-xs bg-accent/8 text-accent font-medium px-3 py-1.5 rounded-full">제129조 건강검진</span>
+                <span class="text-xs bg-accent/8 text-accent font-medium px-3 py-1.5 rounded-full">자동 증빙</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Law Card 2 -->
+        <div class="reveal" style="--index: 1">
+          <div class="double-bezel h-full">
+            <div class="double-bezel-inner h-full">
+              <div class="flex items-start gap-4 mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:shield-warning-bold" width="24" class="text-white"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-lg mb-1">중대재해처벌법 대응</h3>
+                  <span class="text-xs text-[#64748b]">안전보건관리체계 구축 의무</span>
+                </div>
+              </div>
+              <div class="bg-[#f8fafc] border border-navy/5 rounded-xl p-4 mb-4">
+                <div class="flex items-start gap-3">
+                  <iconify-icon icon="solar:arrow-right-bold" width="16" class="text-accent mt-0.5 flex-shrink-0"></iconify-icon>
+                  <p class="text-sm text-[#334155] leading-relaxed">고위험군 사전 식별 및 배치 관리 체계 구축.<br>건강관리 이력의 자동 기록으로 안전보건관리체계 이행 증거를 확보합니다.</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-navy/8 text-navy font-medium px-3 py-1.5 rounded-full">중대재해처벌법</span>
+                <span class="text-xs bg-accent/8 text-accent font-medium px-3 py-1.5 rounded-full">고위험군 관리</span>
+                <span class="text-xs bg-accent/8 text-accent font-medium px-3 py-1.5 rounded-full">이행 증거</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 9: CTA ==================== -->
+  <section class="section-spacious bg-[#f8fafc] relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 bg-accent/5 border border-accent/15 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="solar:phone-calling-bold" class="text-accent" width="14"></iconify-icon>
+          <span class="text-accent text-sm font-semibold">Contact</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy leading-tight mb-6">
+          현장에 맞는 <span class="text-accent">솔루션 도입</span> 방안을<br>상담해 드립니다<span class="accent-dot">.</span>
+        </h2>
+        <p class="text-[#64748b] text-lg mb-10 max-w-2xl mx-auto">
+          현장 규모, 작업자 수, 기존 업무 프로세스에 맞춰<br>최적의 도입 방안을 설계해 드립니다. 부담 없이 문의해 주세요.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="double-bezel max-w-lg mx-auto mb-10">
+          <div class="double-bezel-inner !p-6">
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-accent-blue/8 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:letter-bold" class="text-accent" width="20"></iconify-icon>
+                </div>
+                <div class="text-left">
+                  <p class="text-xs text-[#64748b]">이메일</p>
+                  <p class="text-sm font-semibold text-navy">ktg@ontoh.co.kr</p>
+                </div>
+              </div>
+              <div class="w-full h-px bg-slate-100"></div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-accent/8 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:user-rounded-bold" class="text-accent" width="20"></iconify-icon>
+                </div>
+                <div class="text-left">
+                  <p class="text-xs text-[#64748b]">담당</p>
+                  <p class="text-sm font-semibold text-navy">대표이사 김태건</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="index.html#contact" class="bg-accent text-white font-semibold rounded-full px-8 py-4 flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] spring shadow-lg shadow-accent/20 text-lg">
+            도입 상담 받기
+            <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
+              <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+            </span>
+          </a>
+          <a href="index.html" class="bg-white text-navy font-semibold rounded-full px-8 py-4 flex items-center gap-3 border border-slate-200 hover:border-navy/20 hover:scale-[1.02] active:scale-[0.98] spring text-lg">
+            <iconify-icon icon="solar:arrow-left-linear" width="18"></iconify-icon>
+            메인으로 돌아가기
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-16 bg-navy-900 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+        <!-- Logo & Company Info -->
+        <div>
+          <a href="index.html" class="mb-4 block">
+            <img src="assets/logo/ontoh/흰색.svg" alt="ONTOH" class="h-8">
+          </a>
+          <p class="text-white/50 text-[15px] font-medium mb-3">주식회사 온토</p>
+          <div class="space-y-1.5 text-white/30 text-sm leading-relaxed">
+            <p>대표이사: 김태건</p>
+            <p>사업자등록번호: 230-88-03436</p>
+          </div>
+        </div>
+        <!-- Links -->
+        <div>
+          <h4 class="text-white/60 text-sm font-semibold tracking-wide mb-4">솔루션</h4>
+          <div class="space-y-2.5">
+            <a href="vision.html" class="text-white/40 hover:text-white text-sm spring block">ONTOH Vision</a>
+            <a href="health.html" class="text-white/50 text-sm font-medium block">ONTOH Health</a>
+          </div>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white/60 text-sm font-semibold tracking-wide mb-4">CONTACT</h4>
+          <div class="space-y-1.5 text-white/40 text-sm leading-relaxed">
+            <p>이메일: <a href="mailto:ktg@ontoh.co.kr" class="hover:text-white spring">ktg@ontoh.co.kr</a></p>
+            <p>주소: 서울특별시 서대문구 연세로2나길 61 (창천동, 캠퍼스타운에스큐브) 304호</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-white/25 text-xs">&copy; 2026 ONTOH INC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="js/common.js"></script>
+  <script>
+    // Health-specific: toggleMobileMenu (used by inline onclick)
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    }
+  </script>
+</body>
+</html>

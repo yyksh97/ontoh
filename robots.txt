@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+Disallow: /archive/
+Disallow: /.claude/
+Disallow: /.github/
+
 Sitemap: https://ontoh.co.kr/sitemap.xml
