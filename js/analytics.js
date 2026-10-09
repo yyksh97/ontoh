@@ -123,25 +123,35 @@
 
   function setupUi() {
     var style = document.createElement('style');
+    var ease = 'cubic-bezier(0.16,1,0.3,1)';
     style.textContent = '#ontoh-analytics-banner[hidden]{display:none!important}' +
-      '#ontoh-analytics-banner{position:fixed;inset:auto 16px 16px;z-index:10001;max-width:960px;margin:auto;padding:20px 24px;background:#fff;color:#212121;border:1px solid #d9e0e7;box-shadow:0 8px 28px #0a244025;font:15px/1.6 Pretendard,system-ui,sans-serif}' +
-      '#ontoh-analytics-banner h2{font-size:17px;font-weight:700;margin:0 0 6px}' +
-      '#ontoh-analytics-banner p{margin:0 0 14px}' +
-      '#ontoh-analytics-banner a{color:#0169a9;text-decoration:underline}' +
-      '#ontoh-analytics-banner .analytics-actions{display:flex;gap:10px;flex-wrap:wrap}' +
-      '#ontoh-analytics-banner button{font:inherit;font-weight:600;padding:9px 18px;cursor:pointer;border:1px solid #1b2e6a;border-radius:4px;background:#fff;color:#1b2e6a}' +
-      '#ontoh-analytics-banner button[data-choice="granted"]{background:#1b2e6a;color:white}' +
+      '@keyframes ontoh-analytics-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}' +
+      '#ontoh-analytics-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:10001;max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:24px 28px;background:#fff;color:#212121;border:1px solid #E5E7EB;border-top:2px solid #0A2440;box-shadow:0 12px 40px rgba(10,36,64,.14);font:15px/1.65 Pretendard,system-ui,sans-serif;animation:ontoh-analytics-in .5s ' + ease + '}' +
+      '#ontoh-analytics-banner .analytics-icon{flex-shrink:0;display:grid;place-items:center;width:52px;height:52px;background:#F5F6F8;border:1px solid #E5E7EB;color:#0169a9}' +
+      '#ontoh-analytics-banner .analytics-text{flex:1;min-width:0}' +
+      '#ontoh-analytics-banner h2{font-size:17px;font-weight:700;line-height:1.4;margin:0 0 4px;color:#0A2440}' +
+      '#ontoh-analytics-banner p{margin:0;font-size:14px;line-height:1.7;color:#212121}' +
+      '#ontoh-analytics-banner p .analytics-note{display:block;color:#555}' +
+      '#ontoh-analytics-banner a{color:#0169a9;font-weight:600;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}' +
+      '#ontoh-analytics-banner a:hover{color:#0A2440}' +
+      '#ontoh-analytics-banner .analytics-actions{display:flex;gap:8px;flex-shrink:0}' +
+      '#ontoh-analytics-banner button{font:inherit;font-size:14px;font-weight:600;min-width:116px;min-height:48px;padding:0 22px;cursor:pointer;border:1px solid #0A2440;border-radius:0;background:#fff;color:#0A2440;transition:background-color .25s ' + ease + ',color .25s ' + ease + '}' +
+      '#ontoh-analytics-banner button:hover{background:#F5F6F8}' +
+      '#ontoh-analytics-banner button[data-choice="granted"]{background:#0A2440;color:#fff}' +
+      '#ontoh-analytics-banner button[data-choice="granted"]:hover{background:#0169a9;border-color:#0169a9}' +
       '.ontoh-analytics-settings{background:none;border:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit;padding:4px 0;margin-top:12px}' +
-      '#ontoh-analytics-banner button:focus-visible,.ontoh-analytics-settings:focus-visible{outline:3px solid #0169a9;outline-offset:3px}' +
-      '@media(max-width:600px){#ontoh-analytics-banner{inset:auto 10px 10px;padding:16px}#ontoh-analytics-banner button{flex:1}}';
+      '#ontoh-analytics-banner button:focus-visible,#ontoh-analytics-banner a:focus-visible,.ontoh-analytics-settings:focus-visible{outline:3px solid #0169a9;outline-offset:3px}' +
+      '@media(max-width:720px){#ontoh-analytics-banner{flex-direction:column;align-items:stretch;gap:14px;left:10px;right:10px;bottom:10px;padding:16px 16px 14px;max-height:calc(100dvh - 20px);overflow:auto}#ontoh-analytics-banner .analytics-icon{display:none}#ontoh-analytics-banner h2{font-size:16px}#ontoh-analytics-banner p{font-size:13px;line-height:1.65}#ontoh-analytics-banner .analytics-actions button{flex:1;min-width:0}}' +
+      '@media(prefers-reduced-motion:reduce){#ontoh-analytics-banner{animation:none}#ontoh-analytics-banner button{transition:none}}';
     document.head.appendChild(style);
     banner = document.createElement('section');
     banner.id = 'ontoh-analytics-banner';
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', '웹사이트 분석 설정');
     banner.hidden = consent !== null;
-    banner.innerHTML = '<h2>웹사이트 분석 설정</h2>' +
-      '<p>사이트 개선을 위해 Google Analytics와 Microsoft Clarity로 방문 통계와 클릭·스크롤 행동을 분석합니다. 분석은 허용한 경우에만 시작되며, 거부해도 홈페이지를 이용할 수 있습니다. <a href="/privacy.html">개인정보처리방침</a></p>' +
+    banner.innerHTML = '<span class="analytics-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>' +
+      '<div class="analytics-text"><h2>웹사이트 분석 설정</h2>' +
+      '<p>사이트 개선을 위해 Google Analytics와 Microsoft Clarity로 방문 통계와 클릭·스크롤 행동을 분석합니다. <span class="analytics-note">분석은 허용한 경우에만 시작되며, 거부해도 홈페이지를 이용할 수 있습니다. <a href="/privacy.html">개인정보처리방침</a></span></p></div>' +
       '<div class="analytics-actions"><button type="button" data-choice="denied">분석 거부</button><button type="button" data-choice="granted">분석 허용</button></div>';
     banner.addEventListener('click', function (event) {
       var button = event.target.closest('button[data-choice]');
