@@ -316,7 +316,7 @@ git push origin main
 ## 📞 문의
 
 ### 프로젝트 관련 문의
-- **이메일**: ktg@ontoh.co.kr
+- **이메일**: contact@ontoh.co.kr
 - **웹사이트**: ontoh.co.kr
 
 ### 회사 정보
@@ -358,4 +358,4 @@ git push origin main
 
 **웹사이트 개발 및 배포 완료! 🎉**
 
-추가 문의사항이 있으시면 ktg@ontoh.co.kr로 연락주세요.
+추가 문의사항이 있으시면 contact@ontoh.co.kr로 연락주세요.

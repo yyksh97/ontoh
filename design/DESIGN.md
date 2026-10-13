@@ -48,7 +48,7 @@
 | **사업 도메인** | 건설현장 안전관리 Physical AI |
 | **제품** | LOOKAT (AI 영상 자율 관제) · ONTOH Health (디지털 보건 관리) |
 | **대표이사** | 김태건 |
-| **연락처** | ktg@ontoh.co.kr · www.ontoh.co.kr |
+| **연락처** | contact@ontoh.co.kr · www.ontoh.co.kr |
 | **소재지** | (03777) 서울특별시 서대문구 연세로2나길 61, 캠퍼스타운에스큐브 304호 |
 | **사업자번호** | 230-88-03436 |
 
@@ -378,4 +378,4 @@ Kicker의 상세 페이지 버전. Challenge / Solution / Impact 등에 사용.
 
 _본문 v3.0 (2026-07-22) · §4.2 · §6.1 은 포털 기준으로 갱신 (2026-08-25)_
 _최신 규격: `design/portal/`_
-_Maintained by ONTOH Inc. (ktg@ontoh.co.kr)_
+_Maintained by ONTOH Inc. (contact@ontoh.co.kr)_

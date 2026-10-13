@@ -252,7 +252,7 @@ nslookup ontoh.co.kr
 배포 과정에서 문제가 발생하면:
 - GitHub Pages 공식 문서: https://docs.github.com/en/pages
 - GitHub 커뮤니티: https://github.community/
-- ONTOH 담당자: ktg@ontoh.co.kr
+- ONTOH 담당자: contact@ontoh.co.kr
 
 ---
 

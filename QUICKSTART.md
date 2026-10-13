@@ -88,7 +88,7 @@ Type: CNAME, Name: www, Value: your-username.github.io
 ### 연락처 변경
 ```html
 <!-- index.html에서 찾기: -->
-<a href="mailto:ktg@ontoh.co.kr">ktg@ontoh.co.kr</a>
+<a href="mailto:contact@ontoh.co.kr">contact@ontoh.co.kr</a>
 
 <!-- 이메일 주소 변경 -->
 ```
@@ -111,7 +111,7 @@ python -m http.server 8000
 
 - **상세 배포 가이드**: [DEPLOYMENT.md](DEPLOYMENT.md) 참조
 - **프로젝트 전체 문서**: [README.md](README.md) 참조
-- **문의**: ktg@ontoh.co.kr
+- **문의**: contact@ontoh.co.kr
 
 ---
 
