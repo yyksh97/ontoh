@@ -153,7 +153,7 @@
     banner.hidden = consent !== null;
     banner.innerHTML = '<span class="analytics-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>' +
       '<div class="analytics-text"><h2>웹사이트 분석 설정</h2>' +
-      '<p>사이트 개선을 위해 Google Analytics와 Microsoft Clarity로 방문 통계와 클릭·스크롤 행동을 분석합니다. <span class="analytics-note">분석은 허용한 경우에만 시작되며, 거부해도 홈페이지를 이용할 수 있습니다. <a href="/privacy.html">개인정보처리방침</a></span></p></div>' +
+      '<p>사이트 개선을 위해 Google Analytics와 Microsoft Clarity로 방문 통계와 클릭·스크롤 행동을 분석합니다. 분석 정보는 Google·Microsoft(미국)로 전송되어 최대 14개월 보관됩니다. <span class="analytics-note">분석은 허용한 경우에만 시작되며, 거부해도 홈페이지를 이용할 수 있습니다. <a href="/privacy.html#analytics">자세히 보기</a></span></p></div>' +
       '<div class="analytics-actions"><button type="button" data-choice="denied">분석 거부</button><button type="button" data-choice="granted">분석 허용</button></div>';
     banner.addEventListener('click', function (event) {
       var button = event.target.closest('button[data-choice]');
