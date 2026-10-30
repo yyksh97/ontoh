@@ -46,7 +46,7 @@
           "url": "https://ontoh.co.kr/assets/logo/ontoh/ontoh-logo-color.svg"
         },
         "image": "https://ontoh.co.kr/assets/og/home.jpg",
-        "description": "ONTOH(온토)는 건설현장을 비롯한 산업현장의 위험을 감지·판단·개입·기록하는 Physical AI 안전관리 기업입니다. 건설현장 Edge AI 안전관제 솔루션 LOOKAT(루캣), 현장관리 앱 LOOKAT NOTE, 작업자 보건관리 시스템 ONTOH CARE(온토케어)를 제공합니다.",
+        "description": "ONTOH(온토)는 산업현장의 위험을 감지·판단·개입·기록하는 Physical AI 안전관리 기업입니다. 산업현장 Edge AI 안전관제 솔루션 LOOKAT(루캣), 현장관리 앱 LOOKAT NOTE, 작업자 보건관리 시스템 ONTOH CARE(온토케어)를 제공합니다.",
         "foundingDate": "2025-10-02",
         "founder": {
           "@type": "Person",
@@ -73,6 +73,7 @@
         },
         "areaServed": "KR",
         "knowsAbout": [
+          "산업현장 안전관리",
           "건설현장 안전관리",
           "산업안전",
           "중대재해 예방",
@@ -144,7 +145,7 @@
   <link rel="preconnect" href="https://api.iconify.design" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
   <!-- LOOKAT · ONTOH CARE 브랜드 서체 · 영문 제품명 전용 (Montserrat Black) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,7 +181,7 @@
       } },
     }
   </script>
-  <link rel="stylesheet" href="css/common.css?v=20261020g">
+  <link rel="stylesheet" href="css/common.css?v=20261030e">
   <style>
     body { color: #212121; }
     /* -- State System (Focus/Disabled/Loading/Alert/Tag Variants) -- */
@@ -265,7 +266,7 @@
     .nav-item:hover .nav-top::after { transform:scaleX(1); }
     .gnb-megabar { position:absolute; left:0; right:0; top:100%; height:210px; background:#fff; border-bottom:1px solid #E5E7EB; box-shadow:0 28px 46px -26px rgba(10,36,64,.3); opacity:0; visibility:hidden; transform:translateY(8px); transition:all .38s cubic-bezier(0.16,1,0.3,1); z-index:20; pointer-events:none; }
     .nav-panel { position:absolute; top:100%; left:20px; opacity:0; visibility:hidden; transform:translateY(8px); transition:all .38s cubic-bezier(0.16,1,0.3,1); z-index:22; pointer-events:none; }
-    header:has(.gnb:hover) .gnb-megabar, header:has(.gnb-megabar:hover) .gnb-megabar, header:has(.gnb:hover) .nav-panel, header:has(.gnb-megabar:hover) .nav-panel { opacity:1; visibility:visible; transform:none; pointer-events:auto; }
+    header:has(.gnb:hover) .gnb-megabar, header:has(.gnb-megabar:hover) .gnb-megabar, header:has(.gnb:hover) .nav-panel, header:has(.gnb-megabar:hover) .nav-panel, header:has(.gnb:focus-within) .gnb-megabar, header:has(.gnb:focus-within) .nav-panel { opacity:1; visibility:visible; transform:none; pointer-events:auto; }
     .gnb-panel-box { padding:32px 0 36px; }
     .nav-item:not(:first-child) .nav-panel::before { content:""; position:absolute; left:-20px; top:0; height:210px; width:1px; background:#E5E7EB; }
     .dropdown-link { display:flex; align-items:center; font-size:15px; color:#555555; padding:8px 40px 8px 16px; white-space:nowrap; position:relative; transition:color .28s cubic-bezier(0.16,1,0.3,1), background .28s cubic-bezier(0.16,1,0.3,1); }
@@ -329,7 +330,7 @@
     }
 
   </style>
-  <script defer src="js/analytics.js?v=20261029a"></script>
+  <script defer src="js/analytics.js?v=20261029b"></script>
   <script defer src="js/kakao-widget.js?v=20261020g"></script>
 </head>
 <body class="bg-white font-sans antialiased">
@@ -352,8 +353,8 @@
             <div class="nav-panel"><div class="gnb-panel-box min-w-[150]"><a href="vision.html" class="dropdown-link"><span class="font-brand">LOOKAT</span> <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a><a href="lookat-note.html" class="dropdown-link"><span class="font-brand">LOOKAT NOTE</span> <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a><a href="health.html" class="dropdown-link"><span class="font-brand">ONTOH CARE</span> <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a></div></div>
           </div>
           <div class="nav-item flex items-stretch">
-            <a href="patents.html" class="nav-top relative flex items-center min-w-[168px] px-5 text-[20px] font-bold text-ink">기술·연구</a>
-            <div class="nav-panel"><div class="gnb-panel-box min-w-[160]"><a href="patents.html" class="dropdown-link">특허 · 논문 <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a></div></div>
+            <a href="news.html" class="nav-top relative flex items-center min-w-[168px] px-5 text-[20px] font-bold text-ink">소식·자료</a>
+            <div class="nav-panel"><div class="gnb-panel-box min-w-[160]"><a href="news.html" class="dropdown-link">공지 · 소식 <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a><a href="patents.html" class="dropdown-link">특허 · 논문 <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a></div></div>
           </div>
           <div class="nav-item flex items-stretch">
             <a href="contact.html" class="nav-top relative flex items-center min-w-[168px] px-5 text-[20px] font-bold text-ink">문의</a>
@@ -388,10 +389,11 @@
       </div>
       <div class="mm-group menu-link stagger-2">
         <a href="vision.html" class="mm-head">제품소개 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <a href="vision.html" class="mm-prod"><span><b class="font-brand">LOOKAT</b><small>건설현장 Edge&nbsp;AI 안전관제</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="lookat-note.html" class="mm-prod"><span><b class="font-brand">LOOKAT NOTE</b><small>사진·음성으로 쓰는 현장관리 앱</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="health.html" class="mm-prod"><span><b class="font-brand">ONTOH CARE</b><small>작업자 디지털 보건관리</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <a href="vision.html" class="mm-prod"><span><b class="font-brand">LOOKAT</b><small>산업현장 Edge&nbsp;AI 안전관제</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="lookat-note.html" class="mm-prod"><span><b class="font-brand">LOOKAT NOTE</b><small>사진·음성으로 쓰는 현장관리 앱</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="health.html" class="mm-prod"><span><b class="font-brand">ONTOH CARE</b><small>작업자 디지털 보건관리</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
       </div>
       <div class="mm-group menu-link stagger-3">
-        <a href="patents.html" class="mm-head">기술 · 연구 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <a href="news.html" class="mm-head">소식 · 자료 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="mm-subs"><a href="news.html" class="mm-sub">공지 · 소식</a><a href="patents.html" class="mm-sub">특허 · 논문</a></div>
       </div>
     </nav>
     <div class="mm-foot shrink-0 px-6 sm:px-10 pt-4 border-t border-hair bg-white">
@@ -417,7 +419,7 @@
             <div class="bc-panel">
               <a href="about.html" class="dropdown-link">회사소개</a>
               <a href="vision.html" class="dropdown-link">제품소개</a>
-              <a href="patents.html" class="dropdown-link">기술·연구</a>
+              <a href="news.html" class="dropdown-link">소식·자료</a>
               <a href="contact.html" class="dropdown-link">문의</a>
             </div>
           </div>
@@ -425,9 +427,9 @@
 
         <div class="bc-strip-tools inline-flex items-stretch gap-5 text-white/70 text-[15px]">
           <span class="w-px bg-white/25" aria-hidden="true"></span>
-          <button type="button" onclick="fontResize('up')" class="hover:text-white transition-colors font-semibold flex items-center leading-none" aria-label="글자 크게">+</button>
+          <button type="button" onclick="fontResize('up')" class="hover:text-white transition-colors font-semibold flex items-center justify-center min-w-[32px] leading-none" aria-label="글자 크게">+</button>
           <span class="w-px bg-white/25" aria-hidden="true"></span>
-          <button type="button" onclick="fontResize('down')" class="hover:text-white transition-colors font-semibold flex items-center leading-none" aria-label="글자 작게">−</button>
+          <button type="button" onclick="fontResize('down')" class="hover:text-white transition-colors font-semibold flex items-center justify-center min-w-[32px] leading-none" aria-label="글자 작게">−</button>
           <span class="w-px bg-white/25" aria-hidden="true"></span>
         </div>
       </div>
@@ -451,8 +453,8 @@
       <header class="mb-14 pb-10 border-b border-hair">
         <p class="kicker mb-4">이메일무단수집거부</p>
         <p class="text-body-lg text-sub">
-          본 홈페이지에 게시된 이메일 주소가 <span class="whitespace-nowrap">전자우편 수집 프로그램이나</span> 그 밖의 기술적 장치를 이용하여 <strong class="text-ink font-bold">무단으로 수집되는 것을 거부</strong>합니다.
-          이를 위반하면 <span class="whitespace-nowrap">「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에</span> 따라 <span class="whitespace-nowrap">처벌받을 수 있습니다.</span>
+          본 홈페이지에 게시된 이메일 주소가 <span class="sm:whitespace-nowrap">전자우편 수집 프로그램이나</span> 그 밖의 기술적 장치를 이용하여 <strong class="text-ink font-bold">무단으로 수집되는 것을 거부</strong>합니다.
+          이를 위반하면 <span class="sm:whitespace-nowrap">「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에</span> 따라 <span class="sm:whitespace-nowrap">처벌받을 수 있습니다.</span>
         </p>
         <div class="mt-5 inline-flex items-center gap-2 text-body-sm text-sub">
           <iconify-icon icon="solar:calendar-linear" class="text-accent text-[18px]"></iconify-icon>
@@ -476,7 +478,7 @@
         <ul style="list-style:none; padding-left:0;">
           <li>5. 제50조의2를 위반하여 전자우편주소를 수집·판매·유통하거나 정보 전송에 이용한 자</li>
         </ul>
-        <p class="text-[15px] text-sub">※ 법령 원문은 <a href="https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률" target="_blank" rel="noopener" class="text-accent hover:underline">국가법령정보센터</a>에서 확인할 수 있습니다.</p>
+        <p class="text-[15px] text-sub">※ 법령 원문은 <a href="https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">국가법령정보센터</a>에서 확인할 수 있습니다.</p>
 
       </article>
 
@@ -506,8 +508,7 @@
           <a href="terms.html" class="text-sub hover:text-ink transition-colors">이용약관</a>
           <span class="text-sub/40">|</span>
           <a href="email-policy.html" class="text-sub hover:text-ink transition-colors">이메일무단수집거부</a>
-          <span class="text-sub/40">|</span>
-          <a href="https://www.youtube.com/@ontoh-1002" target="_blank" rel="noopener" class="text-sub hover:text-ink transition-colors">YouTube</a>
+          <a href="https://www.youtube.com/@ontoh-1002" target="_blank" rel="noopener" class="ft-sns inline-flex items-center justify-center w-9 h-9 ml-1 border border-sub/25 text-sub hover:text-ink hover:border-ink transition-colors" aria-label="온토 YouTube 채널 (새 창)" title="YouTube"><iconify-icon icon="mdi:youtube" class="text-[20px]" aria-hidden="true"></iconify-icon></a>
         </div>
       </div>
 
@@ -525,7 +526,12 @@
       </div>
 
       <!-- 카피라이트 -->
-      <p class="ft-copy mt-6 pt-4 border-t border-hair/60 text-sub/85 text-[13px]">&copy; 2026 주식회사 온토. All rights reserved.</p>
+      <div class="ft-copy mt-6 pt-4 border-t border-hair/60 text-sub text-[13px] flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <p>&copy; 2026 주식회사 온토. All rights reserved.</p>
+        <!-- 웹사이트 분석 설정 버튼은 js/analytics.js 가 이 줄 앞쪽에 넣음 -->
+        <div class="ft-util flex items-center gap-5">
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -551,6 +557,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
-  <script src="js/common.js?v=20261020g"></script>
+  <script src="js/common.js?v=20261030b"></script>
 </body>
 </html>

@@ -168,10 +168,13 @@
       banner.hidden = false;
       banner.querySelector('button').focus();
     });
-    // 개인정보처리방침 · 이용약관 옆에 작게 배치 (푸터 링크 줄이 없으면 푸터 끝)
+    // 카피라이트 줄 오른쪽(.ft-util)에 작게 배치 → 없으면 정책 링크 줄 → 없으면 푸터 끝
+    var utilRow = document.querySelector('footer .ft-util');
     var privacyLink = document.querySelector('footer a[href$="privacy.html"]');
     var linkRow = privacyLink && privacyLink.parentNode;
-    if (linkRow) {
+    if (utilRow) {
+      utilRow.insertBefore(settings, utilRow.firstChild);
+    } else if (linkRow) {
       var sep = document.createElement('span');
       sep.className = 'ontoh-analytics-sep';
       sep.setAttribute('aria-hidden', 'true');

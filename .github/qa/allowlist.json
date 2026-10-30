@@ -1,0 +1,12 @@
+{
+  "axe": [
+    {
+      "rule": "color-contrast",
+      "pages": [
+        "health.html"
+      ],
+      "selectorContains": ".text-ink\\/15",
+      "reason": "ONTOH CARE 기능 슬라이드의 큰 번호(01~04)는 장식용. 같은 번호가 탭 버튼에 진하게 표시됨"
+    }
+  ]
+}

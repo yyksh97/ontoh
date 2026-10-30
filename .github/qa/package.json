@@ -1,0 +1,13 @@
+{
+  "name": "ontoh-site-qa",
+  "private": true,
+  "type": "module",
+  "description": "ONTOH 홈페이지 PR 자동 품질 검사 (접근성 · 모바일 넘침 · 키보드 포커스)",
+  "scripts": {
+    "qa": "node site-qa.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "playwright": "1.48.2"
+  }
+}

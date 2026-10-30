@@ -58,9 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
       ].filter(Boolean);
       if (heroEls.length) {
         gsap.set(heroEls, { y: 24, opacity: 0 });
-        var heroTl = gsap.timeline({ delay: 0.15 });
+        // 첫 화면 내용이 늦게 보이지 않도록 짧게 (전체 약 0.9초)
+        var heroTl = gsap.timeline();
         heroEls.forEach(function(el, i) {
-          heroTl.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'ontoh' }, i === 0 ? 0 : '-=0.45');
+          heroTl.to(el, { y: 0, opacity: 1, duration: 0.5, ease: 'ontoh' }, i === 0 ? 0 : '-=0.3');
         });
       }
       // Ken Burns Hero 배경
@@ -325,3 +326,17 @@ function closeMobileMenu() {
     document.body.style.overflow = '';
   }
 }
+
+// 지도 iframe 에 포커스가 들어가면 감싼 영역에 포커스 표시 (iframe 내부 포커스는 CSS 로 감지되지 않음)
+(function () {
+  var frames = document.querySelectorAll('.map-frame');
+  if (!frames.length) return;
+  function sync() {
+    frames.forEach(function (wrap) {
+      wrap.classList.toggle('is-focused', document.activeElement === wrap.querySelector('iframe'));
+    });
+  }
+  window.addEventListener('blur', function () { setTimeout(sync, 0); });
+  window.addEventListener('focus', sync);
+  document.addEventListener('focusin', sync);
+})();

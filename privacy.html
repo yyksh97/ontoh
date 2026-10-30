@@ -46,7 +46,7 @@
           "url": "https://ontoh.co.kr/assets/logo/ontoh/ontoh-logo-color.svg"
         },
         "image": "https://ontoh.co.kr/assets/og/home.jpg",
-        "description": "ONTOH(온토)는 건설현장을 비롯한 산업현장의 위험을 감지·판단·개입·기록하는 Physical AI 안전관리 기업입니다. 건설현장 Edge AI 안전관제 솔루션 LOOKAT(루캣), 현장관리 앱 LOOKAT NOTE, 작업자 보건관리 시스템 ONTOH CARE(온토케어)를 제공합니다.",
+        "description": "ONTOH(온토)는 산업현장의 위험을 감지·판단·개입·기록하는 Physical AI 안전관리 기업입니다. 산업현장 Edge AI 안전관제 솔루션 LOOKAT(루캣), 현장관리 앱 LOOKAT NOTE, 작업자 보건관리 시스템 ONTOH CARE(온토케어)를 제공합니다.",
         "foundingDate": "2025-10-02",
         "founder": {
           "@type": "Person",
@@ -73,6 +73,7 @@
         },
         "areaServed": "KR",
         "knowsAbout": [
+          "산업현장 안전관리",
           "건설현장 안전관리",
           "산업안전",
           "중대재해 예방",
@@ -144,7 +145,7 @@
   <link rel="preconnect" href="https://api.iconify.design" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
   <!-- LOOKAT · ONTOH CARE 브랜드 서체 · 영문 제품명 전용 (Montserrat Black) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,7 +181,7 @@
       } },
     }
   </script>
-  <link rel="stylesheet" href="css/common.css?v=20261020g">
+  <link rel="stylesheet" href="css/common.css?v=20261030e">
   <style>
     body { color: #212121; }
     /* -- State System (Focus/Disabled/Loading/Alert/Tag Variants) -- */
@@ -239,18 +240,25 @@
       color: #555555; margin-bottom: 6px;
     }
     .privacy-content ul li::marker { color: #0169a9; }
+    /* 표: 감싼 상자가 모바일 가로 스크롤을 맡고, 표는 항상 전체 폭 */
+    .privacy-content .table-wrap {
+      margin: 16px 0 24px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      border-top: 2px solid #0A2440;
+    }
     .privacy-content table {
       width: 100%; border-collapse: collapse;
-      margin: 16px 0 24px;
-      font-size: 15px;
-      border: 1px solid #E5E7EB;
+      font-size: 15px; line-height: 1.65;
+      word-break: keep-all;
     }
+    .privacy-content table:has(thead) { min-width: 560px; }
     .privacy-content table th {
       background: #F5F6F8;
       padding: 14px 16px;
       font-weight: 700; color: #0A2440;
-      text-align: left;
+      text-align: left; vertical-align: top;
       border-bottom: 1px solid #E5E7EB;
+      white-space: nowrap;
     }
     .privacy-content table td {
       padding: 14px 16px;
@@ -258,6 +266,7 @@
       border-bottom: 1px solid #E5E7EB;
       vertical-align: top;
     }
+    .privacy-content table td:first-child strong { color: #0A2440; }
     .privacy-content table tr:last-child td { border-bottom: 0; }
     .privacy-content strong { color: #0A2440; font-weight: 700; }
     .nav-item { position:relative; }
@@ -265,7 +274,7 @@
     .nav-item:hover .nav-top::after { transform:scaleX(1); }
     .gnb-megabar { position:absolute; left:0; right:0; top:100%; height:210px; background:#fff; border-bottom:1px solid #E5E7EB; box-shadow:0 28px 46px -26px rgba(10,36,64,.3); opacity:0; visibility:hidden; transform:translateY(8px); transition:all .38s cubic-bezier(0.16,1,0.3,1); z-index:20; pointer-events:none; }
     .nav-panel { position:absolute; top:100%; left:20px; opacity:0; visibility:hidden; transform:translateY(8px); transition:all .38s cubic-bezier(0.16,1,0.3,1); z-index:22; pointer-events:none; }
-    header:has(.gnb:hover) .gnb-megabar, header:has(.gnb-megabar:hover) .gnb-megabar, header:has(.gnb:hover) .nav-panel, header:has(.gnb-megabar:hover) .nav-panel { opacity:1; visibility:visible; transform:none; pointer-events:auto; }
+    header:has(.gnb:hover) .gnb-megabar, header:has(.gnb-megabar:hover) .gnb-megabar, header:has(.gnb:hover) .nav-panel, header:has(.gnb-megabar:hover) .nav-panel, header:has(.gnb:focus-within) .gnb-megabar, header:has(.gnb:focus-within) .nav-panel { opacity:1; visibility:visible; transform:none; pointer-events:auto; }
     .gnb-panel-box { padding:32px 0 36px; }
     .nav-item:not(:first-child) .nav-panel::before { content:""; position:absolute; left:-20px; top:0; height:210px; width:1px; background:#E5E7EB; }
     .dropdown-link { display:flex; align-items:center; font-size:15px; color:#555555; padding:8px 40px 8px 16px; white-space:nowrap; position:relative; transition:color .28s cubic-bezier(0.16,1,0.3,1), background .28s cubic-bezier(0.16,1,0.3,1); }
@@ -329,7 +338,7 @@
     }
 
   </style>
-  <script defer src="js/analytics.js?v=20261029a"></script>
+  <script defer src="js/analytics.js?v=20261029b"></script>
   <script defer src="js/kakao-widget.js?v=20261020g"></script>
 </head>
 <body class="bg-white font-sans antialiased">
@@ -352,8 +361,8 @@
             <div class="nav-panel"><div class="gnb-panel-box min-w-[150]"><a href="vision.html" class="dropdown-link"><span class="font-brand">LOOKAT</span> <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a><a href="lookat-note.html" class="dropdown-link"><span class="font-brand">LOOKAT NOTE</span> <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a><a href="health.html" class="dropdown-link"><span class="font-brand">ONTOH CARE</span> <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a></div></div>
           </div>
           <div class="nav-item flex items-stretch">
-            <a href="patents.html" class="nav-top relative flex items-center min-w-[168px] px-5 text-[20px] font-bold text-ink">기술·연구</a>
-            <div class="nav-panel"><div class="gnb-panel-box min-w-[160]"><a href="patents.html" class="dropdown-link">특허 · 논문 <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a></div></div>
+            <a href="news.html" class="nav-top relative flex items-center min-w-[168px] px-5 text-[20px] font-bold text-ink">소식·자료</a>
+            <div class="nav-panel"><div class="gnb-panel-box min-w-[160]"><a href="news.html" class="dropdown-link">공지 · 소식 <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a><a href="patents.html" class="dropdown-link">특허 · 논문 <iconify-icon icon="solar:arrow-right-linear" class="text-[12px]"></iconify-icon></a></div></div>
           </div>
           <div class="nav-item flex items-stretch">
             <a href="contact.html" class="nav-top relative flex items-center min-w-[168px] px-5 text-[20px] font-bold text-ink">문의</a>
@@ -388,10 +397,11 @@
       </div>
       <div class="mm-group menu-link stagger-2">
         <a href="vision.html" class="mm-head">제품소개 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <a href="vision.html" class="mm-prod"><span><b class="font-brand">LOOKAT</b><small>건설현장 Edge&nbsp;AI 안전관제</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="lookat-note.html" class="mm-prod"><span><b class="font-brand">LOOKAT NOTE</b><small>사진·음성으로 쓰는 현장관리 앱</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="health.html" class="mm-prod"><span><b class="font-brand">ONTOH CARE</b><small>작업자 디지털 보건관리</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <a href="vision.html" class="mm-prod"><span><b class="font-brand">LOOKAT</b><small>산업현장 Edge&nbsp;AI 안전관제</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="lookat-note.html" class="mm-prod"><span><b class="font-brand">LOOKAT NOTE</b><small>사진·음성으로 쓰는 현장관리 앱</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a href="health.html" class="mm-prod"><span><b class="font-brand">ONTOH CARE</b><small>작업자 디지털 보건관리</small></span><iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
       </div>
       <div class="mm-group menu-link stagger-3">
-        <a href="patents.html" class="mm-head">기술 · 연구 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <a href="news.html" class="mm-head">소식 · 자료 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="mm-subs"><a href="news.html" class="mm-sub">공지 · 소식</a><a href="patents.html" class="mm-sub">특허 · 논문</a></div>
       </div>
     </nav>
     <div class="mm-foot shrink-0 px-6 sm:px-10 pt-4 border-t border-hair bg-white">
@@ -417,7 +427,7 @@
             <div class="bc-panel">
               <a href="about.html" class="dropdown-link">회사소개</a>
               <a href="vision.html" class="dropdown-link">제품소개</a>
-              <a href="patents.html" class="dropdown-link">기술·연구</a>
+              <a href="news.html" class="dropdown-link">소식·자료</a>
               <a href="contact.html" class="dropdown-link">문의</a>
             </div>
           </div>
@@ -425,9 +435,9 @@
 
         <div class="bc-strip-tools inline-flex items-stretch gap-5 text-white/70 text-[15px]">
           <span class="w-px bg-white/25" aria-hidden="true"></span>
-          <button type="button" onclick="fontResize('up')" class="hover:text-white transition-colors font-semibold flex items-center leading-none" aria-label="글자 크게">+</button>
+          <button type="button" onclick="fontResize('up')" class="hover:text-white transition-colors font-semibold flex items-center justify-center min-w-[32px] leading-none" aria-label="글자 크게">+</button>
           <span class="w-px bg-white/25" aria-hidden="true"></span>
-          <button type="button" onclick="fontResize('down')" class="hover:text-white transition-colors font-semibold flex items-center leading-none" aria-label="글자 작게">−</button>
+          <button type="button" onclick="fontResize('down')" class="hover:text-white transition-colors font-semibold flex items-center justify-center min-w-[32px] leading-none" aria-label="글자 작게">−</button>
           <span class="w-px bg-white/25" aria-hidden="true"></span>
         </div>
       </div>
@@ -457,7 +467,7 @@
         <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-body-sm text-sub">
           <span class="inline-flex items-center gap-2"><iconify-icon icon="solar:calendar-linear" class="text-accent text-[18px]"></iconify-icon>공고일: <strong class="text-ink">2026년 10월 30일</strong></span>
           <span class="inline-flex items-center gap-2"><iconify-icon icon="solar:calendar-mark-linear" class="text-accent text-[18px]"></iconify-icon>시행일: <strong class="text-ink">2026년 10월 30일</strong></span>
-          <span class="inline-flex items-center gap-2"><iconify-icon icon="solar:document-text-linear" class="text-accent text-[18px]"></iconify-icon>버전: <strong class="text-ink">v1.2</strong> · <a href="#history" class="text-accent hover:underline">개정 이력</a></span>
+          <span class="inline-flex items-center gap-2"><iconify-icon icon="solar:document-text-linear" class="text-accent text-[18px]"></iconify-icon>버전: <strong class="text-ink">v1.2</strong> · <a href="#history" class="text-accent underline underline-offset-2">개정 이력</a></span>
         </div>
       </header>
 
@@ -477,6 +487,7 @@
 
         <h2>2. 수집하는 개인정보 항목 및 수집 방법</h2>
         <h3>가. 수집 항목</h3>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -508,6 +519,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
         <h3>나. 수집 방법</h3>
         <ul>
           <li>홈페이지 문의하기 폼을 통한 정보주체의 직접 입력</li>
@@ -539,6 +551,7 @@
 
         <h2>5. 개인정보 처리의 위탁 및 국외 이전</h2>
         <p>회사는 원활한 개인정보 업무 처리를 위하여 다음과 같이 개인정보 처리 업무를 위탁하고 있습니다.</p>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -575,8 +588,10 @@
             </tr>
           </tbody>
         </table>
+        </div>
         <p class="text-[15px] text-sub">※ 위탁 계약 체결 시 「개인정보 보호법」 제26조에 따라 위탁업무 수행 목적 외 개인정보 처리 금지, 기술적·관리적 보호조치, 재위탁 제한, 손해배상 등 책임에 관한 사항을 계약서 등 문서에 명시하고, 수탁업체가 개인정보를 안전하게 처리하는지 감독합니다.</p>
         <p>위 업무 중 국외 수탁업체로의 이전은 「개인정보 보호법」 제28조의8에 따라 다음과 같이 이루어집니다. 이전 목적은 위 표의 위탁 업무와 같습니다.</p>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -594,25 +609,26 @@
               <td>1년 또는 위탁 계약 종료 시까지</td>
             </tr>
             <tr>
-              <td><strong>Google LLC</strong><br><a href="https://support.google.com/policies/contact/general_privacy_form" target="_blank" rel="noopener" class="text-accent hover:underline">개인정보 문의</a></td>
+              <td><strong>Google LLC</strong><br><a href="https://support.google.com/policies/contact/general_privacy_form" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">개인정보 문의</a></td>
               <td>문의 정보(이메일 수신 시), 웹사이트 분석 정보(분석 허용 시)</td>
               <td>이메일 수신·홈페이지 이용 시 네트워크(TLS)로 전송</td>
               <td>문의 정보 1년, 분석 정보 14개월</td>
             </tr>
             <tr>
-              <td><strong>Microsoft Corporation</strong><br><a href="https://aka.ms/privacyresponse" target="_blank" rel="noopener" class="text-accent hover:underline">개인정보 문의</a></td>
+              <td><strong>Microsoft Corporation</strong><br><a href="https://aka.ms/privacyresponse" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">개인정보 문의</a></td>
               <td>웹사이트 분석 정보(분석 허용 시)</td>
               <td>홈페이지 이용 시 네트워크(HTTPS)로 전송</td>
               <td>세션 리플레이 30일, 집계 정보 9개월</td>
             </tr>
             <tr>
-              <td><strong>GitHub, Inc.</strong><br><a href="https://support.github.com/contact/privacy" target="_blank" rel="noopener" class="text-accent hover:underline">개인정보 문의</a></td>
+              <td><strong>GitHub, Inc.</strong><br><a href="https://support.github.com/contact/privacy" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">개인정보 문의</a></td>
               <td>접속 IP, 접속 시각</td>
               <td>홈페이지 접속 시 네트워크(HTTPS)로 전송</td>
               <td>GitHub의 개인정보 처리 정책에 따름</td>
             </tr>
           </tbody>
         </table>
+        </div>
         <p><strong>국외 이전을 원하지 않는 경우</strong>: 문의하기 폼과 이메일 대신 카카오톡 채널(국내 처리)로 문의할 수 있으며, 웹사이트 분석은 거부할 수 있습니다. 어느 경우에도 문의 응대와 홈페이지 이용에 제한이 없습니다. 다만 접속 기록은 홈페이지 제공에 필요하므로, 이를 원하지 않으면 홈페이지 대신 카카오톡 채널로 문의해 주시기 바랍니다.</p>
 
         <h2>6. 정보주체와 법정대리인의 권리·의무 및 행사 방법</h2>
@@ -650,12 +666,13 @@
           <li><strong>변경 및 철회</strong>: 모든 페이지 하단의 웹사이트 분석 설정에서 선택을 변경할 수 있습니다.<br class="sm:hidden"> 허용 후 거부하면 분석을 중단하고 현재 도메인의 해당 분석 쿠키를 삭제한 뒤 페이지를 새로고침합니다.</li>
           <li><strong>브라우저 설정</strong>: 웹 브라우저의 설정 메뉴에서 쿠키 저장을 거부하거나 삭제할 수도 있습니다.</li>
         </ul>
-        <p>분석 정보는 Google 및 Microsoft의 서비스로 전송되어 처리됩니다. 각 서비스의 처리 방법은 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener" class="text-accent hover:underline">Google의 사이트 및 앱 정보 이용 안내</a>와 <a href="https://clarity.microsoft.com/privacy" target="_blank" rel="noopener" class="text-accent hover:underline">Microsoft Clarity 개인정보 안내</a>에서 확인할 수 있습니다. 회사는 온라인 맞춤형 광고를 목적으로 행태정보를 수집·이용하거나 제3자에게 제공하지 않습니다.</p>
+        <p>분석 정보는 Google 및 Microsoft의 서비스로 전송되어 처리됩니다. 각 서비스의 처리 방법은 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">Google의 사이트 및 앱 정보 이용 안내</a>와 <a href="https://clarity.microsoft.com/privacy" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">Microsoft Clarity 개인정보 안내</a>에서 확인할 수 있습니다. 회사는 온라인 맞춤형 광고를 목적으로 행태정보를 수집·이용하거나 제3자에게 제공하지 않습니다.</p>
         <p><strong>오시는 길 지도(Google 지도)</strong>: 회사소개 페이지의 지도는 Google 지도를 삽입해 제공하며, 지도가 표시되면 IP 주소, 기기·브라우저 정보가 Google로 전송되고 Google 쿠키가 저장될 수 있습니다. 이는 웹사이트 분석 설정과 별개입니다.</p>
-        <p><strong>서비스 소개 영상(YouTube)</strong>: 홈페이지의 서비스 소개 영상은 방문자가 재생 버튼을 누른 경우에만 YouTube 개인정보 보호 강화 모드(youtube-nocookie.com)로 불러옵니다. 재생 전에는 미리보기 이미지를 Google 서버(i.ytimg.com)에서 불러오며 이때 IP 주소가 전송될 수 있습니다. 재생하면 IP 주소, 기기·브라우저 정보 등이 Google(YouTube)로 전송되어 처리될 수 있으며, 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-accent hover:underline">Google 개인정보처리방침</a>에서 확인할 수 있습니다.</p>
+        <p><strong>서비스 소개 영상(YouTube)</strong>: 홈페이지의 서비스 소개 영상은 방문자가 재생 버튼을 누른 경우에만 YouTube 개인정보 보호 강화 모드(youtube-nocookie.com)로 불러옵니다. 재생 전에는 미리보기 이미지를 Google 서버(i.ytimg.com)에서 불러오며 이때 IP 주소가 전송될 수 있습니다. 재생하면 IP 주소, 기기·브라우저 정보 등이 Google(YouTube)로 전송되어 처리될 수 있으며, 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">Google 개인정보처리방침</a>에서 확인할 수 있습니다.</p>
 
         <h2>10. 개인정보 보호책임자</h2>
         <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+        <div class="table-wrap">
         <table>
           <tbody>
             <tr>
@@ -672,14 +689,15 @@
             </tr>
           </tbody>
         </table>
+        </div>
 
         <h2>11. 권익 침해 구제 방법</h2>
         <p>정보주체는 개인정보 침해로 인한 구제를 받기 위하여 아래 기관에 분쟁 해결이나 상담을 신청할 수 있습니다.</p>
         <ul>
-          <li><strong>개인정보분쟁조정위원회</strong>: (국번 없이) 1833-6972 / <a href="https://www.kopico.go.kr" target="_blank" rel="noopener" class="text-accent hover:underline">www.kopico.go.kr</a></li>
-          <li><strong>개인정보침해신고센터</strong>: (국번 없이) 118 / <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener" class="text-accent hover:underline">privacy.kisa.or.kr</a></li>
-          <li><strong>대검찰청</strong>: (국번 없이) 1301 / <a href="https://www.spo.go.kr" target="_blank" rel="noopener" class="text-accent hover:underline">www.spo.go.kr</a></li>
-          <li><strong>경찰청</strong>: (국번 없이) 182 / <a href="https://ecrm.cyber.go.kr" target="_blank" rel="noopener" class="text-accent hover:underline">ecrm.cyber.go.kr</a></li>
+          <li><strong>개인정보분쟁조정위원회</strong>: (국번 없이) 1833-6972 / <a href="https://www.kopico.go.kr" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">www.kopico.go.kr</a></li>
+          <li><strong>개인정보침해신고센터</strong>: (국번 없이) 118 / <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">privacy.kisa.or.kr</a></li>
+          <li><strong>대검찰청</strong>: (국번 없이) 1301 / <a href="https://www.spo.go.kr" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">www.spo.go.kr</a></li>
+          <li><strong>경찰청</strong>: (국번 없이) 182 / <a href="https://ecrm.cyber.go.kr" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">ecrm.cyber.go.kr</a></li>
         </ul>
 
         <h2 id="history">12. 처리방침의 변경 및 개정 이력</h2>
@@ -688,6 +706,7 @@
           <li>② 법령이나 회사 방침에 따라 내용을 추가·삭제·정정하는 경우, 변경 내용과 시행일을 시행 7일 전부터 홈페이지를 통하여 고지합니다. 다만, 이미 시행 중인 처리 내용을 더 자세히 안내하거나 문구를 정비하는 등 정보주체에게 불리하지 않은 변경은 홈페이지에 공고한 날부터 시행할 수 있으며, 이 경우 아래 개정 이력에 그 사실을 표시합니다.</li>
           <li>③ 새로운 개인정보 항목의 수집, 이용 목적의 변경 등 정보주체의 권리에 중요한 영향을 주는 변경은 시행 30일 전부터 고지하며, 필요한 경우 다시 동의를 받습니다.</li>
         </ol>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -714,7 +733,8 @@
             </tr>
           </tbody>
         </table>
-        <p class="text-[15px] text-sub">※ 이전 버전의 개인정보처리방침 전문은 <a href="mailto:contact@ontoh.co.kr" class="text-accent hover:underline">contact@ontoh.co.kr</a>로 요청하시면 제공해 드립니다.</p>
+        </div>
+        <p class="text-[15px] text-sub">※ 이전 버전의 개인정보처리방침 전문은 <a href="mailto:contact@ontoh.co.kr" class="text-accent underline underline-offset-2">contact@ontoh.co.kr</a>로 요청하시면 제공해 드립니다.</p>
 
       </article>
 
@@ -744,8 +764,7 @@
           <a href="terms.html" class="text-sub hover:text-ink transition-colors">이용약관</a>
           <span class="text-sub/40">|</span>
           <a href="email-policy.html" class="text-sub hover:text-ink transition-colors">이메일무단수집거부</a>
-          <span class="text-sub/40">|</span>
-          <a href="https://www.youtube.com/@ontoh-1002" target="_blank" rel="noopener" class="text-sub hover:text-ink transition-colors">YouTube</a>
+          <a href="https://www.youtube.com/@ontoh-1002" target="_blank" rel="noopener" class="ft-sns inline-flex items-center justify-center w-9 h-9 ml-1 border border-sub/25 text-sub hover:text-ink hover:border-ink transition-colors" aria-label="온토 YouTube 채널 (새 창)" title="YouTube"><iconify-icon icon="mdi:youtube" class="text-[20px]" aria-hidden="true"></iconify-icon></a>
         </div>
       </div>
 
@@ -763,7 +782,12 @@
       </div>
 
       <!-- 카피라이트 -->
-      <p class="ft-copy mt-6 pt-4 border-t border-hair/60 text-sub/85 text-[13px]">&copy; 2026 주식회사 온토. All rights reserved.</p>
+      <div class="ft-copy mt-6 pt-4 border-t border-hair/60 text-sub text-[13px] flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <p>&copy; 2026 주식회사 온토. All rights reserved.</p>
+        <!-- 웹사이트 분석 설정 버튼은 js/analytics.js 가 이 줄 앞쪽에 넣음 -->
+        <div class="ft-util flex items-center gap-5">
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -789,6 +813,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
-  <script src="js/common.js?v=20261020g"></script>
+  <script src="js/common.js?v=20261030b"></script>
 </body>
 </html>
